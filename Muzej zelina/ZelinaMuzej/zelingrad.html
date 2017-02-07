@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Muzej Sveti Ivan Zelina</title>
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="slike/favicon.ico" type="image/x-icon">
+<link rel="icon" href="slike/favicon.ico" type="image/x-icon">
+<meta name="description" content="Dvorac Zelingrad je kulturna i spomenička baština grada Svetog Ivana Zeline te sa svojom bogatom poviješću je najpoznatiji spomenik zelinskog kraja ">
+<meta name="keywords" content="Sveti Ivan Zelina,muzej,Zelingrad,povijest,atrakcija">
+<meta name="author" content="Denis Alibašić">
+<link rel="stylesheet" type="text/css" href="dizajn/dizajn.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.min.js"></script>
+<script src="js/title.js" type="text/javascript"></script>
+<style>
+section{width:80%;margin:0 auto;background-color:white;margin-top:20px;}
+.stick {position:fixed;top:-30px;width:80%; margin:auto;z-index:2;}
+a.zelingrad{display:block;float:left;background-color: rgba(139, 3, 3, 1);padding-top:25px;padding-bottom:25px;width:16.50%;font-family:"Times New Roman", Times, serif;color:white;text-decoration:none;font-weight:bold;font-size:12px;margin-top:25px;margin-bottom:15px;border-left: 1px solid gray}
+a.zelingrad:hover{background-color:green;}
+h2{font-size:20px;text-align:center;text-decoration:underline;text-shadow: 2px 2px #FF0000;margin-top:20px;}
+div#sticker{margin-top:20px;}
+article{visibility:visible;}
+.polozaj{margin:10px;}
+hr{width:95%;border:1px solid black; margin: auto;}
+div.povijest{width:100%;margin-top:20px;}
+p.left{margin-right:20px;float:left;color:blue;}
+p.left:first-letter{color:blue;}
+img.vlasnici{width:100px; margin:20px 20px 20px 10 px;}
+h3{font-size:17px;margin-left:20px;margin-top:20px;}
+article#galerija{width:80%;margin:auto;}
+.galerija a{cursor:default;}
+.galerija a .zoom{display:none;}
+.galerija img{padding:10px;width:100px;height:70px;}
+.galerija li{bacground-color:blue;border:1px solid black;display: inline;float:left;margin:5px;position: relative;}
+.galerija a:hover .zoom{display: block;position: absolute;left: -45px;top: -33px;z-index: 1;width:200px;height:120px;}
+div.istrazivanja{width:40%;margin:0 30% 0 30%;}
+@media screen and (max-width: 700px) {
+section{width:100%;}
+.stick{width:100%;}
+a.zelingrad{font-size:10px;}
+div.istrazivanja{width:100%;margin:0;}
+}
+@media screen and (max-width: 563px) {
+a.zelingrad{width:100%;margin-bottom:0px;margin-top:0px;font-size:12px;display:none;}
+li,a.zelingrad:link,a.zelingrad:visited{float:none;}
+a.zelingrad:first-child{display:block;}
+ul:hover a.zelingrad{display:block;}
+}
+@media screen and (max-width: 400px) {
+.galerija img{width:80%;height:220px}
+.galerija a:hover .zoom{width:400px;height:320px;}
+}
+
+@media screen and (max-width: 188px) {
+
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+	var s = $("#sticker");
+	var pos = s.position();					   
+	$(window).scroll(function() {
+		var windowpos = $(window).scrollTop();
+		if (windowpos >= pos.top) {
+			s.addClass("stick");
+		} else {
+			s.removeClass("stick");	
+		}
+	});
+});
+</script>
+</head>
+
+<body>
+
+<main>
+<header>
+	<nav>
+		<ul>
+			<a href="index.html"><img id="slikaHeader" src="slike/muzejzelina.jpg"/><li></li></a>
+			<li>
+				<a class="nav" href="index.html">Muzej</a>
+				<ul class="dropdown">
+					<a class="nav" href="pristup.php" style="width:100%;"><li>Pravo na pristup informacijama</li></a>
+					<a class="nav" href="naklade.php" style="width:100%;margin-top:4px;"><li>Naklade</li></a>
+					<a class="nav" href="zbirke.php" style="width:100%;margin-top:4px;"><li>Zbirke</li></a>
+					<a class="nav" href="galerija.php" style="width:100%;margin-top:4px;"><li>Galerija</li></a>
+				</ul></li>
+			<a class="nav" href="novosti.php"><li>Novosti</li></a>
+			<a class="nav" href="zelingrad.html"><li>Zelingrad</li></a>
+			<a class="nav" href="kontakt.php"><li>Kontakt</li></a>
+		</ul>
+	</nav>
+	<div id="clear"></div>
+</header>
+
+<section>
+	<div id="sticker">
+	<ul>
+		<a class="zelingrad" href="#polozaj"><li>Položaj</li></a>
+		<a class="zelingrad" href="#povijest"><li>Povijest</li></a>
+		<a class="zelingrad" href="#istrazivanja"><li>Istraživanja</li></a>
+		<a class="zelingrad" href="#financiranje"><li>Financiranje</li></a>
+		<a class="zelingrad" href="#novosti"><li>Novosti</li></a>
+		<a class="zelingrad" href="#klub"><li>Prijatelja</li></a>
+	</ul>
+	</div>
+	<div id="float"></div>
+	<div id="top"><a href="#slikaHeader"><img width="100%" src="slike/top.png"/></a></div>
+
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52752.80863974548!2d16.194409232000552!3d45.981684964127474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47660b2bf4dd75fb%3A0x8f33029d25073899!2sZelingrad+(burg)!5e0!3m2!1shr!2shr!4v1464016912642" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+	
+	<article id="polozaj">
+	<h2>SMJEŠTAJ I IZGLED ZELINGRADA</h2>
+	<img class="polozaj" alt="Smještaj i izgled Zelingrada" title="Smještaj i izgled Zelingrada" style="float:left;" src="slike/polozaj/polozaj2.jpg"/>
+	<img  class="polozaj" alt="Smještaj i izgled Zelingrada" title="Smještaj i izgled Zelingrada" style="float:right;" src="slike/polozaj/polozaj3.jpg"/>
+	<p>Zelingrad se nalazi na istočnim obroncima Medvednice 5 km sjeveroistočno od grada Sveti Ivan Zelina (g. š. 45st 59' i g. d. 16st 12'). Smješten je u šumu obrastao obronak koji je nešto niži (326 m n. v. ) od okolnih: sjevernog Hrastovca (467 m n. v. ) i zapadnog Pričela ( 488 m n.v. ). Južno, istočno i zapadno su strme padine brijega, a sjeverno je kanal između kompleksa grada i povišenog platoa. S istočne strane u prošlom stoljeću izgrađen je put prema 2 km udaljenoj Kladeščici, a s tog puta se skreće na prilaz kojim se sa sjevera ulazi u kompleks grada. Tipološki spada u skupinu utvrđenih gradova bez branič-kule.
+
+ Kompleks stambenih elemenata sastoji se od ulazne polukule na koju se naslanja polukula okrenuta prema istoku. Na zapadu se nalazi poligonalna stambena zgrada ( palas ) s polukulom na jugozapadnom uglu. Palas je podijeljen na dvije cjeline: prostor unutarnjeg dvorišta i prostor dviju stambenih prostorija. Na jugoistoku se nalaze temelji još jedne zgrade čija funkcija za sada još nije poznata, a vjerojatno je tu bio smješten gospodarski dio grada. Kroz srednji vijek po obroncima Zagrebačke gore bilo je podignuto niz utvrđenih gradova od kojih danas većinom vidimo samo ruševine ili još manje od toga – kad nam je poznata samo lokacija. Dva takva grada znana su svakome: Medvedgrad koji stoji iznad Zagreba i kontrolira savsku nizinu i Susedgrad na carinski važnoj točki značajne srednjovjekovne trgovačke magistrale.</p>
+	<p>Zelingrad, mnogo manje poznat i u stručnoj literaturi još neobrađen, je treći grad iz tog niza, čije su ruševine još vidljive nad zemljom. Za njega se ne bi moglo reći da je imao jednako važno strateško značenje kao ova dva prethodna. Bio je on više refugium, centar posjeda u koji se gospodar povlačio ne da napada već da živi u miru, shvaćenom na način toga vremena, s rukom i zidinama spremnim za obranu od eventualnih napadača.</p>
+	<div id="clear"></div>
+	</article>
+	</br>
+	<hr></hr>
+	
+	<article id="povijest">
+	<h2>ZELINGRAD KROZ POVIJEST</h2>
+	<div class="povijest"><p class="left">1295.</p><p>Ivan, sin palatina Dionizija (koji je nekada bio i veliki župan moravečki) daruje zemlju Nespeš Pavlu i sinu njegova brata Fabijanu za njihova vjerna služenja. Međaši zemlje Nespeš su, među ostalima, ljudi iz Drenove, ljudi iz Psarjeva Gornjeg i Psarjeva Donjeg te knez Pavao Čurkan, « comite castellano de Zelina». Prvi spomen Zelingrada.</p></div>
+	<div class="povijest"><p class="left">1326.</p><p>	Kralj Karlo za zasluge daruje magistru Nikoli Ludbreškom sve kmetove i sve zemlje kastruma koje se nalaze u Glavnici i Moravču. Među ostalima posjedima kralj Karlo daruje magistru Nikoli i kastrum Zelingrad.</p></div>
+	<div class="povijest"><p class="left">1397.</p><p>	Fabijan Bičkele, pristaša kralja Sigismunda je vlasnik Zelingrada.</p></div>
+	<div class="povijest"><p class="left">1398.</p><p> <img align="left" style="width:150px;margin-right:10px;" src="slike/povijest/isprava.jpg"/>Magistar Fabijan Bičkele, vlasnik grada Zeline izjavljuje pred Zagrebačkim kaptolom da poziva sve ljude slobodnog staleža neka se nasele na pustim mjestima njegova posjeda koji se nalazi uz rijeku Zelinu, a s gornje strane Četvrtkovca. Svima koji se nasele daje slobodu od dvadeset godina te ih u tom roku neće tražiti ništa drugo osim triju službi i kraljevskih poreza i daća. Nakon proteka 20 godina nasljednici će sačuvati istu slobodu kao njegov Četvrtkovec i ljudi koji u njemu borave.</p> </div>
+	<div class="povijest"><p class="left">1415.</p><p> 	(ili početak 1416.) Zelingrad je teško stradao u požaru. Grad je u vlasništvu obitelji Bičkele, a nakon požara se obnavlja.</p></div>
+	<div class="povijest"><p class="left">1460.</p><p> 	Vlasnici Zelingrada: Ladislav, Ivan i Pavao Bičkele izvršili su pljačku na posjedu Benediktova sina u Glavnici. Vino su oteli, a kuću uništili. Zapis o izvršenoj pljački sastavio je Ivan Ade od Svetog Duha, župan Zagrebačke županije.</p></div>
+	<div class="povijest"><p class="left">1472.</p><p> 	U Zagrebu kod "pisanog mosta" izbio je oružani sukob između Stjepana Bičkelea od Zelingrada i ljudi zagrebačkog biskupa. Tom prilikom Stjepan Bičkele teško je stradao te se od te godine više ne spominje</p></div>
+	<div class="povijest"><p class="left">1490.</p><p> 	U Zelingrad su noću ušli vojnici kralja Maksimilijana Habsburškog te je u borbi s njima Ladislav Bičkele bio ubijen. Većina ljudi u Zelingradu je pobijena, grad je opljačkan i djelomično spaljen. Nakon smrti Ladislava Bičkelea kralj Vladislav II. daje Zelingrad u vlasništvo obitelji Zapolja.</p></div>
+	<div class="povijest"><p class="left">1494.</p><p>  Vlasnik Zelingrada je Stjepan Zapolja.</p></div>
+	<div class="povijest"><p class="left">1499.</p><p>  Nakon smrti Stjepana grad nasljeđuje njegov sin Ivan Zapolja.</p></div>
+	<div class="povijest"><p class="left">1531.</p><p> Ivan Zapolja, protukralj Ferdinanda Habsburškog daruje Zelingrad Petru Palffyju, nećaku zagrebačkog biskupa Šimuna Erdödyja.</p></div>
+	<div class="povijest"><p class="left">1534.</p><p> Ivan Kaštelanović prosvjeduje pred Zagrebačkim kaptolom protiv uvođenja Petra Erdödyja u posjed grada Zeline. Kaštelanović je smatrao da on ima pravo na grad Zelinu budući mu ga je obećao kralj Ferdinand Habsburški.</p></div>
+	<div class="povijest"><p class="left">1535.</p><p> Pred Zagrebačkim kaptolom zagrebački biskup Šimun, Petar Palffy od Zeline i Ivan Tompa od Erdeda prodaju kastrum Zelinu za 3 500 zlatnih forinti bivšem podbanu Pavlu Kerečeniju od Kanyafölde i njegovim sinovima Mihajlu, Ladislavu, Andriji, Ljudevitu, Ivanu i Matiji. Izvršeno je utvrđivanje Zelingrada kojom prilikom je ugrađen kamen sa zapisom kaštelana Georgiusa Kerhena.</p></div>
+	<div class="povijest"><p class="left">1545.</p><p> Na Zelingradu se pohranjuju spisi Čazmanskog kaptola</p></div>
+	<div class="povijest"><p class="left">1635.</p><p> Zelingrad se prvi put spominje kao ruševina, «in diruto castro Zelina».</p></div>
+	<div class="povijest"><p class="left">1640.</p><p> Vlasnik Zelingrada Kerečenji oporučno ostavlja utvrđeni grad Zelinu, odnosno njegove ruševine, Tomi Mikuluću i Gabrijelu Crnkoviću.</p></div>
+	<div class="istrazivanja"><img width="100%" alt="Unutrašnjost muzeja" title="Unutrašnjost muzeja" src="slike/povijest/povijest1.jpg"/></div>
+	<div id="float"></div>
+	<h2>VLASNICI ZELINGRADA</h2>
+	<p>Ivan, sin palatina Dionizija, de genere Pecz – na Zelingradu se spominje kaštelan Čurkan (1295. godine)</p>
+	<p>Nikola Ludbreški – nećak palatina Dionizija (1326. godine)</p>
+	<p>Fabijan Bičkele (Byczkele) (1397. godine)</p>
+	<p>Ladislav, Ivan, Pavao Bičkele (Byczkele) (1460. godine)</p>
+	<p>Stjepan Zapolja (Zapolya) (1494. godine)</p>
+	<p>Ivan Zapolja (Zapolya) (1499. godine)</p>
+	<p>Ivan Kaštelanović (Kastellanfy) - polaže pravo na Zelingrad ali nikad nije ušao u posjed grada (1534. godine)</p>
+	<p>Petar Palffy – nećak zagrebačkog biskupa Šimuna Erdedija (Erdödy) (1534. godine)</p>
+	<p>Pavle Kerečenji od Kanyafölde (Kerecheny) (1535. godine)</p>
+	<p>Mihajlo i Ladislav Kerečenji (Kerecheny) (1537. godine)</p>
+	<p>Tomo Mikulić od Brokunjevca (1640. godine)</p>
+	<p>	Gabrijel Crnković (Chernkoczy) (1640. godine)</p>
+	<p>	Obitelj Fodrocy (1640. godine)</p>
+	<div class="vlasnici">
+	<img class="vlasnici" alt="Grbovi vlasnika zelingrada kroz godine" title="Grbovi vlasnika zelingrada kroz godine" src="slike/povijest/degenerepezc.jpg"/>
+	<img class="vlasnici" alt="Grbovi vlasnika zelingrada kroz godine" title="Grbovi vlasnika zelingrada kroz godine" src="slike/povijest/bickele.jpg"/>
+	<img class="vlasnici" alt="Grbovi vlasnika zelingrada kroz godine" title="Grbovi vlasnika zelingrada kroz godine" src="slike/povijest/bickele1.jpg"/>
+	<img class="vlasnici" alt="Grbovi vlasnika zelingrada kroz godine" title="Grbovi vlasnika zelingrada kroz godine" src="slike/povijest/zapolja.jpg"/>
+	<img class="vlasnici" alt="Grbovi vlasnika zelingrada kroz godine" title="Grbovi vlasnika zelingrada kroz godine" src="slike/povijest/kastelanovic.jpg"/>
+	<img class="vlasnici" alt="Grbovi vlasnika zelingrada kroz godine" title="Grbovi vlasnika zelingrada kroz godine" src="slike/povijest/palffy.jpg"/>
+	<img class="vlasnici" alt="Grbovi vlasnika zelingrada kroz godine" title="Grbovi vlasnika zelingrada kroz godine" src="slike/povijest/kerecheni.jpg"/>
+	<img class="vlasnici" alt="Grbovi vlasnika zelingrada kroz godine" title="Grbovi vlasnika zelingrada kroz godine" src="slike/povijest/fodroci.jpg"/>
+	</div>
+	
+	</article>
+	</br>
+	<hr></hr>
+	
+	<article id="istrazivanja">
+	<h2>ISTRAŽIVANJA</h2>
+	<h3>PREGLED ISTRAŽIVANJA NA GRADU OD 1954-1981. GODINE</h3>
+	<p>Pregledom dokumentacije koja se čuva u Muzeju Sveti Ivan Zelina, može se rekonstruirati opseg dosadašnjih radova na Zelingradu. 1954. god. – započinju sustavna istraživanja i vrši se prvo arhitektonsko i geodetsko snimanje grada. Na taj način su se fiksirale određene točke koje nam i danas služe kao polazište za utvrđivanje situacije kakva je bila prije početka istražnih i konzervatorskih radova.</p>
+	<div class="istrazivanja" /><img width="100%" alt="prvo arhitektonsko i geodetsko snimanje grada." title="prvo arhitektonsko i geodetsko snimanje grada." src="slike/istrazivanja/istr1.jpg"/></div>
+	<p>1956. god. – istraživana je jugozapadna polukula i istočni dio grada s dijelovima sjeverne polukule. Tom je prilikom u sjevernoj polukuli pronađena kamena ploča s natpisom koji govori da je 1535. godine u vrijeme kaštelana Juraja Kerhena grad bio ponovno utvrđivan</p>
+	<p>Natpis na ploči glasi:</p>
+	<div class="istrazivanja" /><h3 style="font-style:italic;font-weight:none;font-size:15px;">HOC OPUS FECIT FIERI EGREGIUS GEORGIUS KERHEN CASTELANUS ZELIN IN ANO 1535 </h3><img width="100%;" alt="kamena ploča s natpisom iz 1535." title="kamena ploča s natpisom iz 1535." src="slike/istrazivanja/ploca.jpg"/> </div>
+	<p>1958. god. – prvi put su izvršeni konzervatorski radovi na nekom dijelu grada. Izvedeni su zaštitni radovi na zazidavanju sjeveroistočnog ziđa grada (palasa).</p>
+	<p>1961. god. – nastavljeno je zazidavanje zapadnog zida (njegov jugozapadni dio) te djelomično na jugozapadnoj polukuli. Te se godine radilo i na raščišćavanju unutarnjeg dvorišta grada. Tom prilikom je pronađena veća količina arheološkog materijala: kamena kugla, nož, željezna kugla (tane), veći broj ulomaka keramike, dio konjske potkove, dio pećnjaka sa zelenom glazurom i figurom golubice. U jugoistočnoj polukuli pronađen je ključ.</p>
+	<p>1962. god. – te je godine prilikom raščišćavanja u dvorištu pronađena «rupa kao bunar» obzidana klesanim kamenom, ovalnog oblika 180x150 cm a tada je očišćena do dubine od 1 m. U rupi su pronađeni klesani kameni blokovi, bez drugog arheološkog materijala. Na zapadnom zidu kod «rupe» pojavila se bolta. U neposrednoj blizini «rupe» pronađena je veća količina ulomaka keramike i čavala te jedan novčić.</p>
+	<p>1963-1975. god. – nije bilo zaštitnih radova niti raščišćavanja terena na gradu, samo se čistilo raslinje na i oko grada.</p>
+	<p>1974. god. – Restauratorski zavod Hrvatske izradio je program zaštite i revitalizacije grada, tada su izrađene i nove fotogrametrijske snimke grada koje i danas koristimo.</p>
+	<p>1976. god. – ponovno se krenulo u zaštitne radove na zidovima, tada se obnavljao vanjski plašt ulazne polukule i to samo najugroženiji dijelovi. Kako su radovi iz 1961. godine na zapadnom zidu bili loše izvedeni taj se dio zida urušio te se morao nanovo sazidati. Te se godine počelo i sa djelomičnom obnovom istočnog zida palasa.</p>
+	<p>1980. god. – te se godine na gradu provode opsežni radovi na konzervaciji zidova, radilo se na istočnom zidu palasa na koji je postavljena armirano betonska kapa – serklaž. Tada je sazidan i jugoistočni ugao palasa koji je bio u potpunosti urušen. To su bili zadnji građevinski radovi na Zelingradu do 2002. godine kada se ponovno krenulo u obnovu grada.</p>
+	<p>1981. god. – Restauratorski zavod Hrvatske izradio je elaborat o građevinskim radovima na Zelingradu u1980. godini, što je bio i zadnji opsežniji i stručniji prikaz istražnih i konzervatorskih radova na Zelingradu.</p>
+	<p>U ovom pregledu radova na Zelingradu se vide pokušaji obnove grada ali ne i problemi koji su pratili te radove, glavni problem koji je svugdje prisutan je svakako novac kojeg je bilo teško osigurati ali i osposobljenost izvođača tih radova. Iz pregleda se ne može vidjeti osposobljenost radnika za radove a to je za stručnu obradu nađenog materijala veliki nedostatak. Radove na Zelingradu u početku su vodili arheolozi amateri kojima je Zelingrad prirastao srcu ali koji nisu mogli i znali voditi relevantnu dokumentaciju niti obraditi nalaze prema stručnim kriterijima. Tako da se danas susrećemo s problemima lociranja mjesta istražnih radova (sondi) ali i s poteškoćama u obradi nalaza jer uz nalaze često nema podataka o mjestu, vremenu i načinu pronalaska materijala. I u konzervaciji zidova je bilo sličnih problema ali ne toliko s sposobnosti zidara da obnove neki dio zida već s nadzorom jer su stručnjaci Restauratorskog zavoda tek povremeno dolazili u kontrolu izvedenog. Danas su greške koje su tada napravljene još uočljivije ali nažalost zbog loše vođene dokumentacije danas ne znamo prvobitan izgled zidova tako da se greške više ne mogu ispraviti.</p>
+	
+	<h3>ARHEOLOŠKA ISTRAŽIVANJA 2001.GODINE</h3>
+	<p>U 2001. godini započeli smo opsežnije arheološke radove, prve nakon nekoliko desetljeća, tijekom kojih je utvrđen položaj cisterne u unutarnjem dvorištu stambenog dijela grada. Prvi puta se cisterna spominje 1961. godine kada je prilikom radova pronađena «rupa» ovalnog oblika 180x150 cm ali tada nije bila istražena do kraja već do dubile od 1 m.</p>
+	<div class="istrazivanja" /><img width="100%" alt="rupa ovalnog oblika " title="rupa ovalnog oblika" src="slike/istrazivanja/istr2.jpg"/></div>
+	<p>Tijekom istraživanja susretali smo se s pričama da su u cisterni bile smještene stepenice koje su vodile u podrumske prostorije. Međutim te priče nisu arheološki dokazane.</p>
+	<p>Cisterna je bila izgrađena od velikih klesanih kamenih blokova dubine 4,5 m, a na dnu su ispod tih blokova bile postavljene hrastove daske koje su služile da se prilikom uzimanja vode ne zagrabi mulj. Za sada još nije riješeno pitanje punjenja cisterne vodom jer se zbog urušenosti gornjeg dijela cisterne ne može istražiti njezin vanjski izgled. Ono što znamo o srednjovjekovnim cisternama je da su se punile kišnicom iz dvorišta te da je većina njih bila u podrumima i natkrivenim prostorima.</p>
+	<p>U iskopu cisterne na dubini od 3,5 metara pronašli smo brončani posrebreni vrč visine oko 33 cm, te jedan dosta oštećen vrč ("kanta") od bakra. Njihova datacija još uvijek nije sigurna ali s obzirom da je u cisterni pronađena i velika količina keramike koja pokazuje odlike 15. i 16. stoljeća vjerojatno je da se i ta dva vrča mogu datirati u taj period. Uz keramiku koju smo pronašli, a koje je bilo oko 200 kg, iz cisterne je izvađena i velika količina čavala ali i jedan srp, nož s drvenom drškom, te konjske žvale. Istraživanjem terena oko cisterne, koja se nalazi uz južni zid stambenih prostorija, pronašli smo stepenice koje su vodile u jednu od dvije sobe (u dokumentima se spominje da su stambene prostorije bile na tri kata). Uz te stepenice u humusnom sloju pronašli smo dva novčića od kojih je jedan datiran u 1533. godinu te jedan vrh samostrela.</p>
+	<div id="float"></div>
+	<div class="istrazivanja"><img width="100%" alt="novčić koji datira u 1533. " title="novčić koji datira u 1533. " src="slike/istrazivanja/istr3.jpg"/><img width="100%" alt="brončani posrebreni vrč " title="brončani posrebreni vrč " src="slike/istrazivanja/istr4.jpg"/></div>
+	<p>Također u prijašnjim izradama tlocrta u jugoistočnom dijelu vanjskog dvorišta na spoju sa stambenim dijelom grada smještena je polukula. Istraživanja su pokazala da, umjesto polukule, zidine od velikih kamenih blokova pripadaju potpornju jugoistočnog ugla grada ili prilaznog puta koji je išao oko grada. U kasnijoj fazi izgradnje prostor između dva potporna zida bio je zazidan i pretvoren u polukružno ognjište koje je prilikom nepotpunih istraživanja moglo navesti da se radi o još jednoj polukuli. U blizini ognjišta pronašli smo malo arheološkog materijala, tek nekoliko ulomaka keramike i kosti, ali i jedna srebrna žlica s dugačkom drškom i poligonalnom glavicom na vrhu.</p>
+	<div class="istrazivanja"><img width="100%" alt="rebrna žlica s dugačkom drškom i poligonalnom glavicom na vrhu" title="rebrna žlica s dugačkom drškom i poligonalnom glavicom na vrhu" src="slike/istrazivanja/istr5.jpg"/></div>
+	
+	
+	<h3>ARHEOLOŠKA ISTRAŽIVANJA 2002. GODINE</h3>
+	<p>Arheološkim istraživanjem na Zelingradu koja su otpočela u travnju, a završila u listopadu došlo se do novih spoznaja o položaju zidova za koja do sada nije bilo podataka, te o razini vanjskog i unutarnjeg dvorišta.</p>
+	<div class="istrazivanja"><img width="100%" alt="Arheološkim istraživanja na Zelingradu  " title="Arheološkim istraživanja na Zelingradu " src="slike/istrazivanja/21-1.jpg"/></div>
+	<div class="istrazivanja"><img width="100%" alt="Arheološkim istraživanja na Zelingradu " title="Arheološkim istraživanja na Zelingradu " src="slike/istrazivanja/24-1.jpg"/></div>
+	<p>U sjevernom obrambenom zidu vanjskog dvorišta nalazio se prvotni ulaz u kompleks grada širine 2,55 m. Na uglu sjevernog i istočnog zida vanjskog dvorišta izgrađena je istočna polukula, a 1535. godine ispred starih vrata i današnja ulazna (sjeverna) polukula.</p>
+	<p>Na ulazu u sjevernu polukulu postojao je mali pokretni most ili rešetka kojom je bio zaštićen ulaz što bi mogao potvrditi otvor veličine 35x35 cm s desne strane vrata u kojem je vjerojatno stajao kameni uteg.</p>
+	<p>U istočnom zidu vanjskog dvorišta na spoju sa sjevernim zidom na visini od 1 m nalaze se vrata koja vode u istočnu polukulu. Taj ulaz vodi na prvu etažu polukule, a na etaži ispod pronađena je niša u obliku slova L koja potvrđuje postojanje drvenih stepenica prema donjim dijelovima polukule tj. podrumske prostorije.</p>
+	<p>Također se došlo do razine vanjskog i unutarnjeg dvorišta te je utvrđeno da dvorišta nisu bila popločena već nabijena zemljom.</p>
+	<div id="float"></div>
+	
+	<h3>ARHEOLOŠKA ISTRAŽIVANJA 2003. GODINE</h3>
+	<p>U planu za ovu godinu bilo je provesti istraživanje istočne polukule te pripremiti (očistiti od urušenog materijala) podlogu za postavljanje skele za konzervatorske radove na južnom zidu palasa.</p>
+	<img style="float:left;margin:10px;" alt="ARHEOLOŠKA ISTRAŽIVANJA 2003. GODINE  " title="ARHEOLOŠKA ISTRAŽIVANJA 2003. GODINE " src="slike/istrazivanja/istr0.jpg"/>
+	<img style="float:right;margin:10px;" alt="ARHEOLOŠKA ISTRAŽIVANJA 2003. GODINE  " title="ARHEOLOŠKA ISTRAŽIVANJA 2003. GODINE " src="slike/istrazivanja/istr01.jpg"/>
+	<p>Arheološka istraživanja trajala su 30 radnih dana. Tijekom tog perioda smo očistili dio urušenog materijala uz južni zid palasa, maknuli panj koji je ostao nakon što smo prošle godine odsjekli drvo koje je raslo na zidu istočne polukule, u potpunost smo istražili unutrašnjost polukule te smo istražili dio padine oko polukule u predjelu u kojem je stajao istočni obrambeni zid.</p>
+	<p>Otvaranjem sonde uz južni zid palasa skinuli smo oko 1 m urušenog materijala, ali i materijala i zemlje koja je tu dovezena prilikom konzervatorskih radova 1980. godine. Pošto nam nije bilo u cilju u potpunosti istražiti taj dio grada već samo pripremiti teren za ovogodišnje konzervatorske radove, ove smo godine samo napravili plato za postavljanje skele.</p>
+	<p>Od materijala koji je pronađen uz južni zid izdvojila bih dva komada srebrnog novca jedan iz 1564. a jedan za sada nedatiran. Uz novac pronađena je i veća količina keramike, te jedan vrh samostrela i nešto čavala.</p>
+	<p>Nakon čišćenja južne strane zida palasa prešli smo na uklanjanje korijena koji je ostao nakon micanja stabla koje je izraslo na zidu istočne polukule. Iako su naše pretpostavke bile da je korijen uništio veći dio zid polukule, nakon micanja korijena pokazalo se da je zid u dosta dobrom stanju, odnosno da korijen nije previše oštetio plašt zida.</p>
+	<p>Pošto nam je cilj bio u potpunosti istražiti istočnu polukulu prvo smo počeli s čišćenjem istočne padine brijega oko polukule. Na zidu polukule nalazi se velika rupa nastala vađenjem kamena u prošlosti, te smo prvo morali počistiti urušeni materijal da bi se vidjela veličina te rupe. Zatim smo istražili dio padine u predjelu u kojem se nalazio istočni obrambeni zid. Nakon odvoza šute ustanovili smo da je obrambeni zid na tom dijelu u potpunosti uništen, odnosno da je u prošlosti taj dio zida najvjerojatnije uništen vađenjem kamena. Tom prilikom pronađena je tek manja količina keramike.</p>
+	<p>Vanjski izgled polukule (vanjska visina) upućivao je da bi ispod urušenog materijala u unutrašnjosti mogao postojati podrum. Međutim, nakon pražnjenja urušenog materijala uvidjeli smo da je polukula izgrađena na stijeni te da nije imala podrumske prostorije.</p>
+	<p>Krajnji cilj konzervatorskih radova je rekonstruirati ulaznu polukulu i staviti je pod krov, te tu postaviti mali izložbeni prostor.</p>
+	<p>Opseg radova u 2003. godini ovisi o financijskim sredstvima. Istražne i konzervatorske radove na Zelingradu financijski pomažu: Ministarstvo kulture Republike Hrvatske i Zagrebačka županija.</p>
+	<div id="float"></div>
+	
+	
+	</article>
+	</br>
+	<hr></hr>
+	
+	
+	<article id="financiranje">
+	<h2>TRAŽIMO POMOĆ ZA OBNOVU ZELINGRADA</h2>
+	<p>Muzej Sveti Ivan Zelina koji je kupio Zelingrad nema vlastita sredstva kojima bi financirao istraživanja i obnovu. Osnivač Muzeja je grad Sveti Ivan Zelina koji je toliko siromašan da uopće ne može izdvojiti novac za obnovu Zelingrada. Pozivamo sve koji bi htjeli i mogli pomoći obnovu Zelingrada da to učine na jedan od slijedećih načina:</p>
+	<p>1.	Donacijom novca. Donator može novac donacije uplatiti na žiro račun Muzeja 2360000-1101472103. Za uplaćeni iznos Muzej će sa donatorom potpisati ugovor kojim se obvezuje donirani novac iskoristiti isključivo za istražne ili konzervatorske radove.</p>
+	<p>2.	Donacijom stvari, odnosno opreme. Muzej prima donacije sljedeće opreme, odnosno stvari:</p>
+		<ul style="list-style-type:circle;text-align:left;margin-left:30%;width:70%;">
+			<li>automobil ( za transport radnika i građevinskog materijala)</li>
+			<li>agregat za struju</li>
+			<li>mjerne instrumente (teodolit-nivelir)</li>
+			<li>metalnu skelu</li>
+			<li>električno vitlo – dizalicu za podizanje građevinskog materijala</li>
+			<li>kontejner za materijal i radnike</li>
+			<li>drvenu jelovu građu (grede, daske, fosne, štafle)</li>
+			<li>građevinsko željezo</li>
+			<li>vapno i cement</li>
+			<li>ukrasno zelenilo (parkovno)</li>
+			<li>klupe za sjedenje</li>
+		</ul>
+	<p>3. Pružanje stručne pomoći:</p>
+		<ul style="list-style-type:circle;text-align:left;margin-left:30%;width:70%;">
+			<li>donacija stručne literature</li>
+			<li>davanje stručnih savjeta glede pojedinih neriješenih problema u vezi izvornog izgleda grada , konzervacije, datacije i opisa nalaza</li>
+		</ul>
+	<p>4. Pružanje pomoći u radovima iskapanja</p>
+	<div class="istrazivanja"/><img width="100%" alt="Pružanje pomoći u radovima iskapanja  " title="Pružanje pomoći u radovima iskapanja " src="slike/financiranje/financ2.jpg"/></div>
+	
+	</article>
+	</br>
+	<hr></hr>
+	
+	
+	<article id="novosti">
+	<h2>NOVOSTI I ZANIMLJIVOSTI</h2>
+	<h3>BOŽIĆNO – NOVOGODIŠNJI DOMJENCI NA ZELINGRADU</h3>
+	<p>Između Božića i Nove 2001. godine na Zelingradu je održan zanimljiv domjenak, kojeg su organizirali Muzej Sveti Ivan Zelina i Pučko otvoreno učilište. Uz logorsku vatru, kuhano vino i čaj vrijeme je brzo prolazilo, a goste koji su dolazili po snijegu i ledu, u prigodno ukrašenom gradu zabavili su članovi Zelinskog amaterskog kazališta recitirajući trubadurske balade.</p>
+	<p>Nakon tog prvog uspješnog domjenka i prošlog je Božića održano prigodno druženje. Domjenak je održan 27. prosinca 2002. godine, u za tu prigodu još bogatije ukrašenom gradu. Članovi ZAMKE, tada su izveli prigodni igrokaz koji je napisan posebno za tu prigodu. Glumci su bili odjeveni u srednjovjekovne kostime i vjerno su dočarali duh tog vremena.</p>
+	<div class="istrazivanja"><img width="100%" alt="Članovi ZAMKE u igrokazu" title="Članovi ZAMKE u igrokazu" src="slike/novosti/novosti1.jpg"/></div>
+	
+	<h3>DOMJENAK 2003.</h3>
+	<p>Tradicionalni Božićno-novogodišnji domjenak na Zelingradu održan je 30. prosinca 2003. godine. Igrokaz iz 2002. godine proširen je i prerastao je u malu komediju. Ovog domjenka posjetitelje je nasmijavao HPD Zelina, koji su u svom prepoznatljivom stilu prikazali život na dvoru ispričan kroz likove kuharice, sobarice, peharnika i konjušara. Igrokaz je napisala dvorska spisateljica gđa. Štefica Fanjek.</p>
+	<div class="istrazivanja"/><img width="100%" alt="HPD Zelina na domjenku 2003." title="HPD Zelina na domjenku 2003." src="slike/novosti/novosti2.jpg"/></div>
+	<p>Uz igrokaz domjenak su uveličali i gosti iz Muzeja seljačkih buna iz Gornje Stubice, koji su na gradu priredili Viteški turnir za zlatni kalež.</p>
+	<div class="istrazivanja"/><img width="100%" alt="gosti iz Muzeja seljačkih buna iz Gornje Stubice" title="gosti iz Muzeja seljačkih buna iz Gornje Stubice" src="slike/novosti/novosti3.jpg"/></div>
+	
+	</article>
+	</br>
+	<hr></hr>
+	
+	
+	<article id="klub">
+	<h2>KLUB PRIJATELJA ZELINGRADA</h2>
+	<p>Zelingrad je najstariji i najpoznatiji spomenik kulturne baštine zelinskog kraja. Svojom burnom poviješću dužom od sedam stoljeća utisnuo je prepoznatljiv i snažan pečat u hrvatskoj povijesti.</p>
+	<p>Zbog nemara mnogih godinama je propadao i urušavao se, toneći u šikaru, trnje i zaborav. Odluku o tome da li želimo i pristajemo da svi naši spomenici prošlosti i kulture doista nestanu u šikari i zaboravu, moramo donijeti mi sami. Tragični primjeri umiranja kulturno povijesne baštine zelinskog kraja nalaze se svuda oko nas – Zelingrad, dvorac Sveta Helena, grad Bisag, kurija Božinski, Gegačeva kuća i tako dalje.</p>
+	<div class="istrazivanja"/><img width="100%" alt="Zelingrad" title="Zelingrad" src="slike/klub/klub1.jpg"/></div>
+	<p>Pozivamo Vas da postanete član zajednice koja se ne slaže s time da naši spomenici kulturne baštine zauvijek nestanu s lica zemlje. Postanite član Kluba prijatelja Zelingrada i aktivno pomozite u spašavanju kulturne baštine</p>
+	<p>Muzej Sveti Ivan Zelina je uz pomoć nekolicine suradnika i uz potporu i stručnu pomoć Konzervatorskog odjela Ministarstva kulture otpočeo spašavati Zelingrad.</p>
+	<p>Članovi Kluba prijatelja Zelingrada imaju sljedeće obaveze: pomoći obnovu Zelingrada vlastitim radom ili prilozima.</p>
+	<div class="istrazivanja"/><img width="100%" alt="Zelingrad" title="Zelingrad" src="slike/klub/klub2.jpg"/></div>
+	<p>Prava članova su:</p>
+		<ul style="list-style-type:circle;text-align:left;margin-left:30%;width:70%;">
+			<li>sudjelovati na prigodnim domjencima, primanjima i kulturnim događanjima na Zelingradu</li>
+			<li>dobivati bilten sa pisanim izvješćima o izvedenim istražnim i konzervatorskim radovima na Zelingradu</li>
+			<li>sudjelovati na predavanjima o Zelingradu</li>
+		</ul>
+	<div class="istrazivanja"/><img width="100%" alt="Zelingrad" title="Zelingrad" src="slike/klub/klub3.jpg"/></div>
+	<p>Ispunite pristupnicu i postanite član Kluba prijatelja Zelingrada. Sve dodatne informacije mogu se dobiti na telefon +385-(0)-1-2061-544 u Muzeju Sveti Ivan Zelina ili putem e-mail adrese: muzej@zelina.hr</p>
+	
+	
+	</article>
+</section>
+	
+<footer>
+	<p> © 2016 Muzej Sveti Ivan Zelina by Denis Alibašić</p>
+</footer>
+</main>
+</body>
+</html
