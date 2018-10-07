@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+
+<?php
+   include('session.php');
+?>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -27,7 +32,16 @@
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 		  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-		  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		  <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span>
+			<?php
+				if(isset($_SESSION['login_email'])){
+					echo $_SESSION['login_email'] . " - Logout";
+				}
+				else{
+					echo "Login";
+				}
+			?>
+			</a></li>
 		</ul>
 	  </div>
 	</nav>
