@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Title of the document</title>
+<title>Oglasnik</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -27,27 +27,40 @@
 	$(document).ready(function(){
 		$("#login").click(function(){
 			$("#contents").load('login.php');
+			$('#spanLogin').text(' Login');
+			$('#dodajOglas').hide();
+			$('#mojiOglasi').hide();
+			$('#signupNav').show();
 		});
 	});
 	
-	$(document).ready(function(){
-		var values = $(this).serialize();
-		$.ajax({
-			url: "login.php",
-			type: "post",
-			data: values ,
-			success: function (response) {
-				$('#spanLogin').text(' Login');
-				$('#dodajOglas').show();
-				$('#mojiOglasi').show();               
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-			   console.log(textStatus, errorThrown);
-			}
-
-
-		});
-	});
+	function validateRegister(){
+		ime = document.getElementById('ime').value;
+		prezime = document.getElementById('prezime').value;
+		email = document.getElementById('email').value;
+		dob = document.getElementById('dob').value;
+		mjestostanovanja = document.getElementById('mjestostanovanja').value;
+		postbr = document.getElementById('postbr').value;
+		password = document.getElementById('password').value;
+		if (ime=="" || prezime=="" || email=="" || dob=="" || mjestostanovanja=="" || postbr=="" || password=="")
+		{
+			alert("Sva su polja obavezna pri registraciji");
+			return false;
+		}
+		else{
+			$.ajax({
+				type: 'POST',  
+				url: 'register.php', 
+				data: { ime: $('#ime').val(), prezime: $('#prezime').val(), email: $('#email').val(), dob: $('#dob').val(),
+					mjestostanovanja: $('#mjestostanovanja').val(), postbr: $('#postbr').val(), password: $('#password').val()},
+				success: function(response) {
+					alert("Uspješno ste se registrirali. Možete se prijaviti sa novim računom.");
+					content.html(response);
+				}
+			});
+		}
+		}
+	
 </script>
 
 </head>
@@ -66,7 +79,7 @@
 		  <li><a href="#">Kontakt</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-		  <li id="signupNav"><a href="#" id="signup"><span class="glyphicon glyphicon-user"> SignUp </span></a></li>
+		  <li id="signupNav" <?php if (isset($_SESSION['login_email'])){?> style="display:none"<?php } ?> ><a href="#" id="signup"><span class="glyphicon glyphicon-user"> SignUp </span></a></li>
 		  <li><a href="#" id="login"><span class="glyphicon glyphicon-log-in" id="spanLogin">
 			<?php 
 				if(isset($_SESSION['login_email'])){

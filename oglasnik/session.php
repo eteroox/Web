@@ -11,8 +11,4 @@
 	   
 	   $login_session = $row['email'];
    }
-   
-   /*if(!isset($_SESSION['login_email'])){
-      header("location:login.php");
-   }*/
 ?>
