@@ -32,15 +32,15 @@
 	<form action = "login.php" method = "post" style="margin: 0 auto; width:80%">
 	  <div class="col-xs-10" style = "margin-top:10px">
 		<label for="exampleInputEmail1">Email address</label>
-		<input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+		<input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
 	  </div>
 	  <div class="col-xs-10">
 		<label for="exampleInputPassword1">Password</label>
-		<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		<input type="password" name="password" class="form-control" id="password" placeholder="Password">
 	  </div>
 	  </br>
 	  <div class="col-xs-10" style = "margin-top:10px">
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" onclick="validateLogin()" class="btn btn-primary">Submit</button>
 	  </div>
 	  <div class="col-xs-10" style = "font-size:11px; color:#cc0000; margin-top:10px">
 		<?php 

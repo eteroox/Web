@@ -20,7 +20,7 @@
 <script>
 	$(document).ready(function(){
 	  $("#signup").click(function(){
-		$("#contents").load('register.php');
+		$("#contents").load('register-form.php');
 	  });
 	});
 	
@@ -42,24 +42,31 @@
 		mjestostanovanja = document.getElementById('mjestostanovanja').value;
 		postbr = document.getElementById('postbr').value;
 		password = document.getElementById('password').value;
-		if (ime=="" || prezime=="" || email=="" || dob=="" || mjestostanovanja=="" || postbr=="" || password=="")
-		{
-			alert("Sva su polja obavezna pri registraciji");
-			return false;
-		}
-		else{
+		
+		$.ajax({
+			type: 'post',  
+			url: 'register.php', 
+			data: { ime: $('#ime').val(), prezime: $('#prezime').val(), email: $('#email').val(), dob: $('#dob').val(),
+				mjestostanovanja: $('#mjestostanovanja').val(), postbr: $('#postbr').val(), password: $('#password').val()},
+			success: function(response) {
+				alert(response);
+				document.getElementById("imeRegister").innerHTML  = "Prazno polje";
+			}
+		});
+		};
+		
+		function validateLogin(){
+			email = document.getElementById('email').value;
+			password = document.getElementById('password').value;
 			$.ajax({
 				type: 'POST',  
-				url: 'register.php', 
-				data: { ime: $('#ime').val(), prezime: $('#prezime').val(), email: $('#email').val(), dob: $('#dob').val(),
-					mjestostanovanja: $('#mjestostanovanja').val(), postbr: $('#postbr').val(), password: $('#password').val()},
+				url: 'login.php', 
+				data: { email: $('#email').val(), password: $('#password').val()},
 				success: function(response) {
-					alert("Uspješno ste se registrirali. Možete se prijaviti sa novim računom.");
-					content.html(response);
+					alert("Uspješno ste se ulogirali.");
 				}
 			});
-		}
-		}
+			}
 		
 		$(document).ready(function(){
 		  $("#kontakt").click(function(){
