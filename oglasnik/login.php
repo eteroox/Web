@@ -21,7 +21,6 @@
 		
       if($count == 1) {
          $_SESSION['login_email'] = $email;
-         
          header("location: index.php");
       }else {
          $error = "Your Email or Password is invalid";

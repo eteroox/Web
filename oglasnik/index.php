@@ -60,6 +60,12 @@
 			});
 		}
 		}
+		
+		$(document).ready(function(){
+		  $("#kontakt").click(function(){
+			$("#contents").load('kontakt.php');
+		  });
+		});
 	
 </script>
 
@@ -76,7 +82,7 @@
 		  <li class="active"><a href="index.php">Pretraži aute</a></li>
 		  <li id="dodajOglas" <?php if (!isset($_SESSION['login_email'])){?> style="display:none"<?php } ?> ><a href="#">Dodaj oglas</a></li>
 		  <li id="mojiOglasi" <?php if (!isset($_SESSION['login_email'])){?> style="display:none"<?php } ?> ><a href="#">Moji oglasi</a></li>
-		  <li><a href="#">Kontakt</a></li>
+		  <li><a href="#" id="kontakt">Kontakt</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 		  <li id="signupNav" <?php if (isset($_SESSION['login_email'])){?> style="display:none"<?php } ?> ><a href="#" id="signup"><span class="glyphicon glyphicon-user"> SignUp </span></a></li>
