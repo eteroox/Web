@@ -19,18 +19,15 @@
 		if($_POST[ime] == "" || $_POST[prezime] == "" || $_POST[email] == "" || $_POST[dob] == "" || $_POST[mjestostanovanja] == "" 
 			|| $_POST[postbr] == "" || $_POST[password] == "")
 		{
-			echo "Sva polja se moraju ispuniti";
-			exit();
-		}
-		elseif($row_cnt > 0){
-			echo "Email već postoji";
+			echo "prazno";
 			exit();
 		}
 		else{
 			$sql = "INSERT INTO users (Ime, Prezime, Email, Dob, MjestoStanovanja, PostanskiBroj, Password_user)
 				VALUES ('$_POST[ime]', '$_POST[prezime]', '$_POST[email]', '$_POST[dob]', '$_POST[mjestostanovanja]',
 				'$_POST[postbr]', '$_POST[password]')";
-			echo "Uspješno ste se registrirali te se sada možete prijaviti na stranicu.";
+			echo "dobro";
+			exit();
 		}
 	}
 

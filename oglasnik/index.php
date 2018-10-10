@@ -17,7 +17,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script>
+<script charset="UTF-8">
 	$(document).ready(function(){
 	  $("#signup").click(function(){
 		$("#contents").load('register-form.php');
@@ -49,32 +49,54 @@
 			data: { ime: $('#ime').val(), prezime: $('#prezime').val(), email: $('#email').val(), dob: $('#dob').val(),
 				mjestostanovanja: $('#mjestostanovanja').val(), postbr: $('#postbr').val(), password: $('#password').val()},
 			success: function(response) {
-				alert(response);
-				document.getElementById("imeRegister").innerHTML  = "Prazno polje";
+				if(response === "prazno" ){
+					alert("Sva polja se moraju ispuniti");
+					document.getElementById("imeRegister").innerHTML  = "Ime je obavezno";
+					document.getElementById("prezimeRegister").innerHTML  = "Prezime je obavezno";
+					document.getElementById("emailRegister").innerHTML  = "Email je obavezan";
+					document.getElementById("dobRegister").innerHTML  = "Dob je obavezno";
+					document.getElementById("mjestostanovanjaRegister").innerHTML  = "Mjesto stanovanja je obavezno";
+					document.getElementById("postbrRegister").innerHTML  = "Poštanski broj je obavezan";
+					document.getElementById("passwordRegister").innerHTML  = "Password je obavezan";
+				}
+				if(response === "dobro"){
+					alert("Uspješno ste se registrirali te se sada možete prijaviti na stranicu.");
+					window.location.replace("/oglasnik/Web/oglasnik/index.php");
+				}
 			}
 		});
 		};
 		
-		function validateLogin(){
-			email = document.getElementById('email').value;
-			password = document.getElementById('password').value;
-			$.ajax({
-				type: 'POST',  
-				url: 'login.php', 
-				data: { email: $('#email').val(), password: $('#password').val()},
-				success: function(response) {
-					alert("Uspješno ste se ulogirali.");
+	function validateLogin(){
+		email = document.getElementById('email').value;
+		password = document.getElementById('password').value;
+		$.ajax({
+			type: 'post',  
+			url: 'login.php', 
+			data: { email: $('#email').val(), password: $('#password').val()},
+			success: function(response) {
+				if(response === "error"){
+					alert("Prazna polja ili email već postoji");
+				}else{
+					window.location.replace("/oglasnik/Web/oglasnik/index.php");
 				}
-			});
 			}
-		
-		$(document).ready(function(){
-		  $("#kontakt").click(function(){
-			$("#contents").load('kontakt.php');
-		  });
 		});
+		}
+		
+	$(document).ready(function(){
+	  $("#kontakt").click(function(){
+		$("#contents").load('kontakt.php');
+	  });
+	});
 	
 </script>
+
+<style>
+span.errorRegister{
+	color:red;
+}
+</style>
 
 </head>
 

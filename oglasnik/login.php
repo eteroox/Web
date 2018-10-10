@@ -8,23 +8,26 @@
    }
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
+	  
+	  $email = mysqli_real_escape_string($db,$_POST['email']);
+	  $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
       
-      $email = mysqli_real_escape_string($db,$_POST['email']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-      
-      $sql = "SELECT id FROM users WHERE Email = '$email' and Password_user = '$mypassword'";
+      $sql = "SELECT id FROM users WHERE Email = '$email'";
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $active = $row['active'];
       
       $count = mysqli_num_rows($result);
-		
-      if($count == 1) {
-         $_SESSION['login_email'] = $email;
-         header("location: index.php");
-      }else {
-         $error = "Your Email or Password is invalid";
-      }
+	  
+	  if($_POST['email'] == "" || $_POST['password'] = "" || $count != 1){
+		  echo "error";
+		  exit();
+	  }
+	  else{
+		  $_SESSION['login_email'] = $email;
+		  echo "logiran";
+		  exit();
+	  }
    }
 ?>
 	
@@ -40,14 +43,7 @@
 	  </div>
 	  </br>
 	  <div class="col-xs-10" style = "margin-top:10px">
-		<button type="submit" onclick="validateLogin()" class="btn btn-primary">Submit</button>
+		<button type="button" onclick="validateLogin()" class="btn btn-primary">Submit</button>
 	  </div>
-	  <div class="col-xs-10" style = "font-size:11px; color:#cc0000; margin-top:10px">
-		<?php 
-		if (isset($error) == true){
-			echo $error;
-		}
-		?>
-	</div>
 	</form>
 </div>
