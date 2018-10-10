@@ -112,6 +112,11 @@
 		});
 		}
 	
+	$(document).ready(function(){
+	  $("#dodajOglas").click(function(){
+		$("#contents").load('dodajOglas.php');
+	  });
+	});
 </script>
 
 <style>
