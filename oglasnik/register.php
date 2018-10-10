@@ -26,8 +26,10 @@
 			$sql = "INSERT INTO users (Ime, Prezime, Email, Dob, MjestoStanovanja, PostanskiBroj, Password_user)
 				VALUES ('$_POST[ime]', '$_POST[prezime]', '$_POST[email]', '$_POST[dob]', '$_POST[mjestostanovanja]',
 				'$_POST[postbr]', '$_POST[password]')";
-			echo "dobro";
-			exit();
+			if ($db->query($sql) === TRUE) {
+				echo "dobro";
+				exit();
+			}
 		}
 	}
 

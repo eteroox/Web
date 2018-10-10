@@ -90,6 +90,28 @@
 	  });
 	});
 	
+	function validateKontakti(){
+		naslov = document.getElementById('naslov').value;
+		email = document.getElementById('email').value;
+		objasnjenje = document.getElementById('objasnjenje').value;
+		$.ajax({
+			type: 'post',  
+			url: 'kontakt.php', 
+			data: { naslov: $('#naslov').val(), email: $('#email').val(), objasnjenje: $('#objasnjenje').val()},
+			success: function(response) {
+				if(response === "prazno"){
+					alert("Prazna polja se moraju popuniti");
+					document.getElementById("naslovError").innerHTML  = "Naslov je obavezan";
+					document.getElementById("emailError").innerHTML  = "Email je obavezan";
+					document.getElementById("objasnjenjeError").innerHTML  = "Objašnjenje je obavezno";
+				}else{
+					alert("Poruka je uspješno poslana");
+					window.location.replace("/oglasnik/Web/oglasnik/index.php");
+				}
+			}
+		});
+		}
+	
 </script>
 
 <style>
