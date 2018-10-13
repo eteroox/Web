@@ -114,9 +114,21 @@
 	
 	$(document).ready(function(){
 	  $("#dodajOglas").click(function(){
-		$("#contents").load('dodajOglas.php');
+		$("#contents").load('dodajOglas-form.php');
 	  });
 	});
+	
+	function validateDodajOglas(){
+		$.ajax({
+			type: 'post',  
+			url: 'dodajOglas.php',
+			data: { marka: $('#marka').val(), model: $('#model').val(), gorivo: $('#gorivo').val() , mjenjac: $('#mjenjac').val()
+				, pogon: $('#pogon').val() , boja: $('#boja').val() , cijena: $('#cijena').val() , opis: $('#opis').val()},
+			success: function(response) {
+				alert(response);
+			}
+		});
+		}
 </script>
 
 <style>
