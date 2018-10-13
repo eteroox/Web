@@ -14,7 +14,8 @@
 	
 	$email = $_SESSION['login_email'];
 	
-	$sql = "SELECT LokacijaSlike, MarkaAutomobila, ModelAutomobila, Gorivo, Mjenjac, Pogon, Boja, Cijena, Opis, DatumKreiranja, DatumUpdejta 
+	$sql = "SELECT LokacijaSlike, MarkaAutomobila, ModelAutomobila, Gorivo, Mjenjac, Pogon, Boja, Cijena, Opis, DatumKreiranja, DatumUpdejta, 
+		s.id as idS, a.id as idA
 		FROM users u
 		JOIN slike s ON u.id = s.users_id
 		JOIN auti a ON s.auti_id = a.id
@@ -37,6 +38,9 @@
 		<label><span class="carMojiSpan">Cijena: </span> <?php echo $row["Cijena"]; ?> Kn</label></br>
 		<label><span class="carMojiSpan">Datum objave: </span> <?php echo $row["DatumKreiranja"]; ?> </label></br>
 		<label><span class="carMojiSpan">Datum promjene: </span> <?php echo $row["DatumUpdejta"]; ?> </label></br>
+		<span style="display:none;" id="idS" name="idS"><?php echo $row["idS"]; ?></span>
+		<span style="display:none;" id="idA" name="idA"><?php echo $row["idA"]; ?></span>
+		<button onClick="funDel()" type="button" class="btn btn-primary" name="submit">Obriši</button>
 	</div>
 	<div style="float:none;clear:both;"></div>
 	<hr style="height:1px;border:none;color:#333;background-color:#333;">

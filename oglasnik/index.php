@@ -170,6 +170,21 @@
 			$("#contents").load('mojiOglasi-form.php');
 		  });
 		});
+		
+		function funDel(){
+			idS = document.getElementById('idS').innerHTML;
+			idA = document.getElementById('idA').innerHTML;
+			$.ajax({
+			type: 'post',  
+			url: 'obrisiOglas.php',
+			cache: false,
+			data: {idS: idS, idA: idA},
+			success: function(response) {
+				alert("Oglas uspješno obrisan");
+				window.location.replace("/oglasnik/Web/oglasnik/index.php");
+			}
+		});
+		}
 </script>
 
 <style>

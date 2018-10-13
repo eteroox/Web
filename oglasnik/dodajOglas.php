@@ -17,7 +17,7 @@
 	$arr_file_types = ['image/png', 'image/gif', 'image/jpg', 'image/jpeg'];
 	 
 	if (!(in_array($_FILES['file']['type'], $arr_file_types))) {
-		echo "false";
+		echo "prazno";
 		return;
 	}
 	 
