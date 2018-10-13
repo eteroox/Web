@@ -12,6 +12,25 @@
 	}
 	
 	mysqli_set_charset($db,"utf8");
+
+	//allowed file types
+	$arr_file_types = ['image/png', 'image/gif', 'image/jpg', 'image/jpeg'];
+	 
+	if (!(in_array($_FILES['file']['type'], $arr_file_types))) {
+		echo "false";
+		return;
+	}
+	 
+	if (!file_exists('uploads')) {
+		mkdir('uploads', 0777);
+	}
+	 
+	move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
+	
+	$imageName = $_FILES['file']['name'];
+	$imageLocation = 'uploads/' . $_FILES['file']['name'];
+	$imageExtension = pathinfo($imageName, PATHINFO_EXTENSION);
+	$imageSize = $_FILES['file']['size'];
 	
 	$email = $_SESSION['login_email'];
 	
@@ -33,8 +52,8 @@
 	}
 	else {
 		if($_SERVER["REQUEST_METHOD"] == "POST") {
-			if($_POST['marka'] == "" || $_POST['model'] = "" || $_POST['gorivo'] = "" || $_POST['mjenjac'] = "" || $_POST['pogon'] = ""
-				|| $_POST['boja'] = "" || $_POST['cijena'] = "" || $_POST['opis'] = ""){
+			if($marka == "" || $model == "" || $gorivo == "" || $mjenjac == "" || $pogon == ""
+				|| $boja == "" || $cijena == "" || $opis == "" || $imageName == ""){
 				
 				echo "prazno";
 				exit();
@@ -45,7 +64,18 @@
 				
 				$insertsql = "INSERT INTO auti (MarkaAutomobila, ModelAutomobila, Gorivo, Mjenjac, Pogon, Boja, Cijena, Opis, users_id) 
 				VALUES ('$marka', '$model', '$gorivo', '$mjenjac', '$pogon','$boja', '$cijena', '$opis', '$id')";
-				if ($db->query($insertsql) === TRUE) {
+				
+				$db->query($insertsql);
+				
+				$sql = "SELECT id FROM auti WHERE users_id = '".$id."' order by id desc limit 1";
+				$result = mysqli_query($db, $sql);
+				$row=mysqli_fetch_array($result);
+				$autiid = $row["id"];
+				
+				$insertToSlike = "INSERT INTO slike (NazivSlike, TipSlike, VelicinaSlike, LokacijaSlike, auti_id, users_id)
+					values ('$imageName', '$imageExtension', '$imageSize', '$imageLocation', '$autiid', '$id')";
+				
+				if ($db->query($insertToSlike) === TRUE) {
 					echo "dobro";
 					exit();
 				}

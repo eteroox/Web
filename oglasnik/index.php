@@ -63,6 +63,9 @@
 					alert("Uspješno ste se registrirali te se sada možete prijaviti na stranicu.");
 					window.location.replace("/oglasnik/Web/oglasnik/index.php");
 				}
+				if(response === "postoji"){
+					document.getElementById("emailRegister").innerHTML  = "Email se već koristi";
+				}
 			}
 		});
 		};
@@ -76,8 +79,13 @@
 			data: { email: $('#email').val(), password: $('#password').val()},
 			success: function(response) {
 				if(response === "error"){
-					alert("Prazna polja ili email već postoji");
-				}else{
+					document.getElementById("emailLogin").innerHTML  = "Email je obavezan";
+					document.getElementById("passwordLogin").innerHTML  = "Password je obavezan";
+				}
+				else if(response === "kriviEmail"){
+					document.getElementById("emailLogin").innerHTML  = "Email se već koristi";
+				}
+				else{
 					window.location.replace("/oglasnik/Web/oglasnik/index.php");
 				}
 			}
@@ -100,7 +108,6 @@
 			data: { naslov: $('#naslov').val(), email: $('#email').val(), objasnjenje: $('#objasnjenje').val()},
 			success: function(response) {
 				if(response === "prazno"){
-					alert("Prazna polja se moraju popuniti");
 					document.getElementById("naslovError").innerHTML  = "Naslov je obavezan";
 					document.getElementById("emailError").innerHTML  = "Email je obavezan";
 					document.getElementById("objasnjenjeError").innerHTML  = "Objašnjenje je obavezno";
@@ -118,14 +125,56 @@
 	  });
 	});
 	
-	function validateDodajOglas(){
+	function validateDodajOglas(event){
+		/*formData = new FormData(); //your form name 
+		var file_data = $('input[type="file"]')[0].file;
+		formData.append("file", file_data);*/
+		/*var fileName = document.getElementById('file').files[0].name;
+		var result = event.target.result;
+		alert(fileName);*/
+		
+		/*var form = $('dodajOglasForm')[0]; // You need to use standard javascript object here
+		var formData = new FormData(form);*/
+		
+		var file_data = $('.image').prop('files')[0];
+		var form_data = new FormData();                  
+        form_data.append('marka', $('#marka').val());
+		form_data.append('model', $('#model').val());
+		form_data.append('gorivo', $('#gorivo').val());
+		form_data.append('mjenjac', $('#mjenjac').val());
+		form_data.append('pogon', $('#pogon').val());
+		form_data.append('boja', $('#boja').val());
+		form_data.append('cijena', $('#cijena').val());
+		form_data.append('opis', $('#opis').val());
+		form_data.append('file', file_data);
+		
 		$.ajax({
 			type: 'post',  
 			url: 'dodajOglas.php',
-			data: { marka: $('#marka').val(), model: $('#model').val(), gorivo: $('#gorivo').val() , mjenjac: $('#mjenjac').val()
-				, pogon: $('#pogon').val() , boja: $('#boja').val() , cijena: $('#cijena').val() , opis: $('#opis').val()},
+			processData: false,
+			contentType: false,
+			cache: false,
+			/*data: { marka: $('#marka').val(), model: $('#model').val(), gorivo: $('#gorivo').val() , mjenjac: $('#mjenjac').val()
+				, pogon: $('#pogon').val() , boja: $('#boja').val() , cijena: $('#cijena').val() , 
+				opis: $('#opis').val() , files: formData},*/
+			data: form_data,
 			success: function(response) {
-				alert(response);
+				if(response === "prazno"){
+					document.getElementById("markaOglas").innerHTML  = "Marka je obavezna";
+					document.getElementById("modelOglas").innerHTML  = "Model je obavezan";
+					document.getElementById("gorivoOglas").innerHTML  = "Gorivo je obavezano";
+					document.getElementById("mjenjacOglas").innerHTML  = "Mjenjac je obavezan";
+					document.getElementById("pogonOglas").innerHTML  = "Pogon je obavezan";
+					document.getElementById("bojaOglas").innerHTML  = "Boja je obavezna";
+					document.getElementById("cijenaOglas").innerHTML  = "Cijena je obavezna";
+					document.getElementById("opisOglas").innerHTML  = "Opis je obavezan";
+				}
+				else{
+					alert(response);
+					//$('#image_preview').html(data);  
+					//alert("Oglas uspješno napravljen");
+					//window.location.replace("/oglasnik/Web/oglasnik/index.php");
+				}
 			}
 		});
 		}
