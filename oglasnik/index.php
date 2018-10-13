@@ -125,17 +125,7 @@
 	  });
 	});
 	
-	function validateDodajOglas(event){
-		/*formData = new FormData(); //your form name 
-		var file_data = $('input[type="file"]')[0].file;
-		formData.append("file", file_data);*/
-		/*var fileName = document.getElementById('file').files[0].name;
-		var result = event.target.result;
-		alert(fileName);*/
-		
-		/*var form = $('dodajOglasForm')[0]; // You need to use standard javascript object here
-		var formData = new FormData(form);*/
-		
+	function validateDodajOglas(event){	
 		var file_data = $('.image').prop('files')[0];
 		var form_data = new FormData();                  
         form_data.append('marka', $('#marka').val());
@@ -154,9 +144,6 @@
 			processData: false,
 			contentType: false,
 			cache: false,
-			/*data: { marka: $('#marka').val(), model: $('#model').val(), gorivo: $('#gorivo').val() , mjenjac: $('#mjenjac').val()
-				, pogon: $('#pogon').val() , boja: $('#boja').val() , cijena: $('#cijena').val() , 
-				opis: $('#opis').val() , files: formData},*/
 			data: form_data,
 			success: function(response) {
 				if(response === "prazno"){
@@ -170,19 +157,37 @@
 					document.getElementById("opisOglas").innerHTML  = "Opis je obavezan";
 				}
 				else{
-					alert(response);
-					//$('#image_preview').html(data);  
-					//alert("Oglas uspješno napravljen");
-					//window.location.replace("/oglasnik/Web/oglasnik/index.php");
+					alert(response); 
+					alert("Oglas uspješno napravljen");
+					window.location.replace("/oglasnik/Web/oglasnik/index.php");
 				}
 			}
 		});
 		}
+		
+		$(document).ready(function(){
+		  $("#mojiOglasi").click(function(){
+			$("#contents").load('mojiOglasi-form.php');
+		  });
+		});
 </script>
 
 <style>
 span.errorRegister{
 	color:red;
+}
+span.carMojiSpan{
+	color:red;
+}
+img.imageMojiOglasi{
+	width:60%; 
+	float:left;
+}
+
+@media screen and (max-width: 1000px) {
+  img.imageMojiOglasi {
+    width: 100%;
+  }
 }
 </style>
 
