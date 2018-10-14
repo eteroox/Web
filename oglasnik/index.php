@@ -9,6 +9,13 @@
 <meta charset="UTF-8">
 <title>Oglasnik</title>
 
+<!--
+LightBox credentials:
+Licence location: https://raw.githubusercontent.com/lokesh/lightbox2/master/LICENSE
+Creator: Lokesh Dhakar
+HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
+-->
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- Optional theme -->
@@ -419,6 +426,19 @@
 					postbr.style.fontFamily = "Lucida Console";
 					postbr.style.fontsize = "15px";
 					document.getElementById(iDiv.id).appendChild(postbr);
+					
+					var emailCrveno = document.createElement("span");
+					emailCrveno.style.color = "red";
+					emailCrveno.innerHTML = 'Email: ';
+					emailCrveno.style.fontSize  = "15px";
+					document.getElementById(iDiv.id).appendChild(emailCrveno);
+					
+					var email = document.createElement("p");
+					email.innerHTML = value.Email;
+					email.style.textTransform = "uppercase";
+					email.style.fontFamily = "Lucida Console";
+					email.style.fontsize = "15px";
+					document.getElementById(iDiv.id).appendChild(email);
 					
 					var opisCrveno = document.createElement("span");
 					opisCrveno.style.color = "red";
