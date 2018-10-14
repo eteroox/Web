@@ -16,6 +16,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="lightbox/lightbox.css" rel="stylesheet">
 
 <script charset="UTF-8">
 	$(document).ready(function(){
@@ -248,168 +249,193 @@
 					iDiv.id = 'block'+i;
 					iDiv.className = 'searchResult';
 					iDiv.style.padding = '5px';
+					iDiv.style.width = '60%';
+					iDiv.style.float = 'left';
 					document.getElementById("searchOutside").appendChild(iDiv);
+					
+					var iDiv2 = document.createElement('div');
+					iDiv2.id = '2block'+i;
+					iDiv2.className = 'searchResult';
+					iDiv2.style.padding = '5px';
+					iDiv2.style.width = '30%';
+					iDiv2.style.float = 'left';
+					document.getElementById("searchOutside").appendChild(iDiv2);
+					
+					var anchor = document.createElement('a');
+					anchor.setAttribute("data-lightbox", "slike");
+					anchor.href = value.LokacijaSlike;
+					anchor.id = 'anchor'+i;
+					document.getElementById(iDiv.id).appendChild(anchor);
 					
 					var elem = document.createElement("img");
 					elem.setAttribute("src", value.LokacijaSlike);
-					elem.setAttribute("height", "600px");
-					elem.setAttribute("width", "60%");
+					//elem.setAttribute("height", "600px");
+					elem.setAttribute("width", "100%");
 					elem.setAttribute("alt", value.MarkaAutomobila);
 					elem.style.border = '2px solid black';
 					elem.style.margin = '5px';
-					if(i % 2 === 1){
-						elem.style.float = 'right';
-					}else{
-						elem.style.float = 'left';
-					}
-					document.getElementById(iDiv.id).appendChild(elem);
+					elem.className = 'slikaSearch';
+					elem.style.float = 'left';
+					document.getElementById(anchor.id).appendChild(elem);
+					
+					var infoKontakt = document.createElement("h1");
+					infoKontakt.innerHTML = 'Kontakt informacije: ';
+					infoKontakt.style.fontWeight = 'bold';
+					infoKontakt.style.fontsize = "20px";
+					document.getElementById(iDiv.id).appendChild(infoKontakt);
+					
+					var infoAuto = document.createElement("h1");
+					infoAuto.innerHTML = 'Informacije o autu: ';
+					infoAuto.style.fontWeight = 'bold';
+					infoAuto.style.fontsize = "20px";
+					document.getElementById(iDiv2.id).appendChild(infoAuto);
 					
 					var markaCrveno = document.createElement("span");
 					markaCrveno.style.color = "red";
 					markaCrveno.innerHTML = 'Marka automobila: ';
-					markaCrveno.style.fontSize  = "30px";
-					document.getElementById(iDiv.id).appendChild(markaCrveno);
+					markaCrveno.style.fontSize  = "15px";
+					document.getElementById(iDiv2.id).appendChild(markaCrveno);
 					
 					var markaAutomobila = document.createElement("p");
 					markaAutomobila.innerHTML = value.MarkaAutomobila;
 					markaAutomobila.style.textTransform = "uppercase";
 					markaAutomobila.style.fontFamily = "Lucida Console";
-					markaAutomobila.style.fontsize = "25px";
-					document.getElementById(iDiv.id).appendChild(markaAutomobila);
+					markaAutomobila.style.fontsize = "15px";
+					document.getElementById(iDiv2.id).appendChild(markaAutomobila);
 					
 					var modelCrveno = document.createElement("span");
 					modelCrveno.style.color = "red";
 					modelCrveno.innerHTML = 'Model automobila: ';
-					modelCrveno.style.fontSize  = "30px";
-					document.getElementById(iDiv.id).appendChild(modelCrveno);
+					modelCrveno.style.fontSize  = "15px";
+					document.getElementById(iDiv2.id).appendChild(modelCrveno);
 					
 					var modelAutomobila = document.createElement("p");
 					modelAutomobila.innerHTML = value.ModelAutomobila;
 					modelAutomobila.style.textTransform = "uppercase";
 					modelAutomobila.style.fontFamily = "Lucida Console";
-					modelAutomobila.style.fontsize = "25px";
-					document.getElementById(iDiv.id).appendChild(modelAutomobila);
+					modelAutomobila.style.fontsize = "15px";
+					document.getElementById(iDiv2.id).appendChild(modelAutomobila);
 					
 					var gorivoCrveno = document.createElement("span");
 					gorivoCrveno.style.color = "red";
 					gorivoCrveno.innerHTML = 'Gorivo: ';
-					gorivoCrveno.style.fontSize  = "30px";
-					document.getElementById(iDiv.id).appendChild(gorivoCrveno);
+					gorivoCrveno.style.fontSize  = "15px";
+					document.getElementById(iDiv2.id).appendChild(gorivoCrveno);
 					
 					var gorivo = document.createElement("p");
 					gorivo.innerHTML = value.Gorivo;
 					gorivo.style.textTransform = "uppercase";
 					gorivo.style.fontFamily = "Lucida Console";
-					gorivo.style.fontsize = "25px";
-					document.getElementById(iDiv.id).appendChild(gorivo);
+					gorivo.style.fontsize = "15px";
+					document.getElementById(iDiv2.id).appendChild(gorivo);
 					
 					var mjenjacCrveno = document.createElement("span");
 					mjenjacCrveno.style.color = "red";
 					mjenjacCrveno.innerHTML = 'Mjenjac: ';
-					mjenjacCrveno.style.fontSize  = "30px";
-					document.getElementById(iDiv.id).appendChild(mjenjacCrveno);
+					mjenjacCrveno.style.fontSize  = "15px";
+					document.getElementById(iDiv2.id).appendChild(mjenjacCrveno);
 					
 					var mjenjac = document.createElement("p");
 					mjenjac.innerHTML = value.Mjenjac;
 					mjenjac.style.textTransform = "uppercase";
 					mjenjac.style.fontFamily = "Lucida Console";
-					mjenjac.style.fontsize = "25px";
-					document.getElementById(iDiv.id).appendChild(mjenjac);
+					mjenjac.style.fontsize = "15px";
+					document.getElementById(iDiv2.id).appendChild(mjenjac);
 					
 					var pogonCrveno = document.createElement("span");
 					pogonCrveno.style.color = "red";
 					pogonCrveno.innerHTML = 'Pogon: ';
-					pogonCrveno.style.fontSize  = "30px";
-					document.getElementById(iDiv.id).appendChild(pogonCrveno);
+					pogonCrveno.style.fontSize  = "15px";
+					document.getElementById(iDiv2.id).appendChild(pogonCrveno);
 					
 					var pogon = document.createElement("p");
 					pogon.innerHTML = value.Pogon;
 					pogon.style.textTransform = "uppercase";
 					pogon.style.fontFamily = "Lucida Console";
-					pogon.style.fontsize = "25px";
-					document.getElementById(iDiv.id).appendChild(pogon);
+					pogon.style.fontsize = "15px";
+					document.getElementById(iDiv2.id).appendChild(pogon);
 					
 					var bojaCrveno = document.createElement("span");
 					bojaCrveno.style.color = "red";
 					bojaCrveno.innerHTML = 'Boja: ';
-					bojaCrveno.style.fontSize  = "30px";
-					document.getElementById(iDiv.id).appendChild(bojaCrveno);
+					bojaCrveno.style.fontSize  = "15px";
+					document.getElementById(iDiv2.id).appendChild(bojaCrveno);
 					
 					var boja = document.createElement("p");
 					boja.innerHTML = value.Boja;
 					boja.style.textTransform = "uppercase";
 					boja.style.fontFamily = "Lucida Console";
-					boja.style.fontsize = "25px";
-					document.getElementById(iDiv.id).appendChild(boja);
+					boja.style.fontsize = "15px";
+					document.getElementById(iDiv2.id).appendChild(boja);
 					
 					var cijenaCrveno = document.createElement("span");
 					cijenaCrveno.style.color = "red";
 					cijenaCrveno.innerHTML = 'Cijena: ';
-					cijenaCrveno.style.fontSize  = "30px";
-					document.getElementById(iDiv.id).appendChild(cijenaCrveno);
+					cijenaCrveno.style.fontSize  = "15px";
+					document.getElementById(iDiv2.id).appendChild(cijenaCrveno);
 					
 					var cijena = document.createElement("p");
 					cijena.innerHTML = value.Cijena;
 					cijena.style.textTransform = "uppercase";
 					cijena.style.fontFamily = "Lucida Console";
-					cijena.style.fontsize = "25px";
-					document.getElementById(iDiv.id).appendChild(cijena);
+					cijena.style.fontsize = "15px";
+					document.getElementById(iDiv2.id).appendChild(cijena);
 					
 					var korisnikCrveno = document.createElement("span");
 					korisnikCrveno.style.color = "red";
 					korisnikCrveno.innerHTML = 'Kontakt ime: ';
-					korisnikCrveno.style.fontSize  = "30px";
+					korisnikCrveno.style.fontSize  = "15px";
 					document.getElementById(iDiv.id).appendChild(korisnikCrveno);
 					
 					var korisnik = document.createElement("p");
 					korisnik.innerHTML = value.Korisnik;
 					korisnik.style.textTransform = "uppercase";
 					korisnik.style.fontFamily = "Lucida Console";
-					korisnik.style.fontsize = "25px";
+					korisnik.style.fontsize = "15px";
 					document.getElementById(iDiv.id).appendChild(korisnik);
 					
 					var mjestoCrveno = document.createElement("span");
 					mjestoCrveno.style.color = "red";
 					mjestoCrveno.innerHTML = 'Lokacija vozila: ';
-					mjestoCrveno.style.fontSize  = "30px";
+					mjestoCrveno.style.fontSize  = "15px";
 					document.getElementById(iDiv.id).appendChild(mjestoCrveno);
 					
 					var mjesto = document.createElement("p");
 					mjesto.innerHTML = value.Mjesto;
 					mjesto.style.textTransform = "uppercase";
 					mjesto.style.fontFamily = "Lucida Console";
-					mjesto.style.fontsize = "25px";
+					mjesto.style.fontsize = "15px";
 					document.getElementById(iDiv.id).appendChild(mjesto);
 					
 					var postbrCrveno = document.createElement("span");
 					postbrCrveno.style.color = "red";
 					postbrCrveno.innerHTML = 'Poštanski broj: ';
-					postbrCrveno.style.fontSize  = "30px";
+					postbrCrveno.style.fontSize  = "15px";
 					document.getElementById(iDiv.id).appendChild(postbrCrveno);
 					
 					var postbr = document.createElement("p");
 					postbr.innerHTML = value.Postbr;
 					postbr.style.textTransform = "uppercase";
 					postbr.style.fontFamily = "Lucida Console";
-					postbr.style.fontsize = "25px";
+					postbr.style.fontsize = "15px";
 					document.getElementById(iDiv.id).appendChild(postbr);
 					
 					var opisCrveno = document.createElement("span");
 					opisCrveno.style.color = "red";
 					opisCrveno.innerHTML = 'Opis: ';
-					opisCrveno.style.fontSize  = "30px";
-					document.getElementById(iDiv.id).appendChild(opisCrveno);
+					opisCrveno.style.fontSize  = "15px";
+					document.getElementById(iDiv2.id).appendChild(opisCrveno);
 					
 					var opis = document.createElement("p");
 					opis.innerHTML = value.Opis;
 					opis.style.textTransform = "uppercase";
 					opis.style.fontFamily = "Lucida Console";
-					opis.style.fontsize = "25px";
-					document.getElementById(iDiv.id).appendChild(opis);
+					opis.style.fontsize = "15px";
+					document.getElementById(iDiv2.id).appendChild(opis);
+					
 					
 					var divNONE = document.createElement("div");
-					divNONE.style.clear = 'both';
-					
+					divNONE.style.clear = "both";
 					document.getElementById("searchOutside").appendChild(divNONE);
 					
 					var hr = document.createElement("hr");
@@ -457,6 +483,9 @@ img.imageMojiOglasi{
   .col-xs-3{
 	width: 100% !important;
 	}
+	.slikaSearch{
+		width: 100%;
+	}
 }
 </style>
 
@@ -500,6 +529,8 @@ img.imageMojiOglasi{
 		</div>
 	</section>
 </main>
+
+<script src="lightbox/lightbox.js"></script>
 </body>
 
 </html>

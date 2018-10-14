@@ -25,7 +25,8 @@
 	$sql = "SELECT LokacijaSlike, MarkaAutomobila, ModelAutomobila, Gorivo, Mjenjac, Pogon, Boja, Cijena, Opis, 
 			CONCAT(ime, ' ',prezime) AS Korisnik,
 			MjestoStanovanja AS Mjesto,
-			PostanskiBroj AS Postbr FROM users u
+			PostanskiBroj AS Postbr,
+			u.Email as Email FROM users u
 			JOIN slike s ON u.id = s.users_id
 			JOIN auti a ON s.auti_id = a.id
 			where MarkaAutomobila like '%{$marka}%'
@@ -56,6 +57,7 @@
 				'Korisnik' => $row["Korisnik"],
 				'Mjesto' => $row["Mjesto"],
 				'Postbr' => $row["Postbr"],
+				'Email' => $row["Email"],
                 );
 		$auti[] = $array;
 	}
