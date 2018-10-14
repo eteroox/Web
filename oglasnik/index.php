@@ -219,6 +219,32 @@
 			$("#contents").load('search-form.php');
 		  });
 		});
+		
+		function searchOglasi(){	
+			marka = $('#marka').val();
+			model = $('#model').val();
+			gorivo = $('#gorivo').val();
+			mjenjac = $('#mjenjac').val();
+			pogon = $('#pogon').val();
+			boja = $('#boja').val();
+			cijenaOd = $('#cijenaOd').val();
+			cijenaDo = $('#cijenaDo').val();
+			
+		$.ajax({
+			type: 'post',  
+			url: 'search.php',
+			data: {marka: marka, model: model, gorivo: gorivo, mjenjac: mjenjac, pogon: pogon, boja: boja, cijenaOd: cijenaOd,
+				cijenaDo: cijenaDo},
+			success: function(response) {
+				$.each(JSON.parse(response), function (index, value) {
+					console.log(value);
+					console.log(value.Gorivo);
+					document.getElementById('slikaOglasi').src = value.LokacijaSlike;
+					document.getElementById("searchResultId").style.display = "block";
+				});
+			}
+		});
+		}
 </script>
 
 <style>
@@ -239,6 +265,9 @@ span.carMojiSpan{
 img.imageMojiOglasi{
 	width:50%; 
 	float:left;
+}
+.searchResult{
+	display: none;
 }
 
 @media screen and (max-width: 1000px) {
@@ -284,7 +313,10 @@ img.imageMojiOglasi{
 	
 	<section>
 		<div class="contentWrapper" id="contents">
-		
+			<div style="width:50%; margin:0 auto"><p style="font-size: 50px;">OGLASNIK</p></div>
+		</div>
+		<div class="searchResult" id="searchResultId">
+			<img id="slikaOglasi" src="//:0"/>
 		</div>
 	</section>
 </main>
