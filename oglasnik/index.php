@@ -157,7 +157,6 @@
 					document.getElementById("opisOglas").innerHTML  = "Opis je obavezan";
 				}
 				else{
-					alert(response); 
 					alert("Oglas uspješno napravljen");
 					window.location.replace("/oglasnik/Web/oglasnik/index.php");
 				}
@@ -210,12 +209,27 @@
 			data: form_data,
 			success: function(response) {
 				alert("Oglas uspješno promjenjen!");
+				window.location.replace("/oglasnik/Web/oglasnik/index.php");
 			}
 		});
 		}
+		
+		$(document).ready(function(){
+		  $("#pretraziOglase").click(function(){
+			$("#contents").load('search-form.php');
+		  });
+		});
 </script>
 
 <style>
+body {
+	background-image: url('slike/vitara.png');
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+div.contentWrapper{
+	background: rgb(255, 255, 255, .9);
+}
 span.errorRegister{
 	color:red;
 }
@@ -223,7 +237,7 @@ span.carMojiSpan{
 	color:red;
 }
 img.imageMojiOglasi{
-	width:75%; 
+	width:50%; 
 	float:left;
 }
 
@@ -231,6 +245,9 @@ img.imageMojiOglasi{
   img.imageMojiOglasi {
     width: 100%;
   }
+  .col-xs-3{
+	width: 100% !important;
+	}
 }
 </style>
 
@@ -244,7 +261,7 @@ img.imageMojiOglasi{
 		  <a class="navbar-brand" href="index.php">Oglasnik</a>
 		</div>
 		<ul class="nav navbar-nav">
-		  <li class="active"><a href="index.php">Pretraži aute</a></li>
+		  <li id="pretraziOglase" class="active"><a href="#">Pretraži aute</a></li>
 		  <li id="dodajOglas" <?php if (!isset($_SESSION['login_email'])){?> style="display:none"<?php } ?> ><a href="#">Dodaj oglas</a></li>
 		  <li id="mojiOglasi" <?php if (!isset($_SESSION['login_email'])){?> style="display:none"<?php } ?> ><a href="#">Moji oglasi</a></li>
 		  <li><a href="#" id="kontakt">Kontakt</a></li>
@@ -266,7 +283,9 @@ img.imageMojiOglasi{
 	</nav>
 	
 	<section>
-		<div class="contentWrapper" id="contents"></div>
+		<div class="contentWrapper" id="contents">
+		
+		</div>
 	</section>
 </main>
 </body>

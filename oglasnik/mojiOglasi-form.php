@@ -91,8 +91,11 @@
 		</div>
 			<span style="display:none;" id="idS" name="idS"><?php echo $row["idS"]; ?> </span>
 			<span style="display:none;" id="idA" name="idA"><?php echo $row["idA"]; ?> </span>
+		<div style="float:none;clear:both;"></div>
+		<div class="form-group row">
 			<button onClick="funDel()" type="button" class="btn btn-danger" name="obrisi">Obriši</button>
 			<button onClick="funUpd()" type="button" class="btn btn-primary" name="promjeni">Promijeni</button>
+		</div>
 		</form>
 	</div>
 	<div style="float:none;clear:both;"></div>
