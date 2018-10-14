@@ -27,12 +27,14 @@ HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
 
 <script charset="UTF-8">
 	$(document).ready(function(){
+	document.getElementById("searchOutside").innerHTML = "";
 	  $("#signup").click(function(){
 		$("#contents").load('register-form.php');
 	  });
 	});
 	
 	$(document).ready(function(){
+	document.getElementById("searchOutside").innerHTML = "";
 		$("#login").click(function(){
 			$("#contents").load('login.php');
 			$('#spanLogin').text(' Login');
@@ -104,6 +106,7 @@ HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
 		}
 		
 	$(document).ready(function(){
+	document.getElementById("searchOutside").innerHTML = "";
 	  $("#kontakt").click(function(){
 		$("#contents").load('kontakt.php');
 	  });
@@ -131,6 +134,7 @@ HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
 		}
 	
 	$(document).ready(function(){
+	document.getElementById("searchOutside").innerHTML = "";
 	  $("#dodajOglas").click(function(){
 		$("#contents").load('dodajOglas-form.php');
 	  });
@@ -176,6 +180,7 @@ HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
 		}
 		
 		$(document).ready(function(){
+		document.getElementById("searchOutside").innerHTML = "";
 		  $("#mojiOglasi").click(function(){
 			$("#contents").load('mojiOglasi-form.php');
 		  });
@@ -226,6 +231,7 @@ HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
 		}
 		
 		$(document).ready(function(){
+		document.getElementById("searchOutside").innerHTML = "";
 		  $("#pretraziOglase").click(function(){
 			$("#contents").load('search-form.php');
 		  });

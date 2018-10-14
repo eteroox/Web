@@ -31,10 +31,10 @@
 			JOIN auti a ON s.auti_id = a.id
 			where MarkaAutomobila like '%{$marka}%'
 			and ModelAutomobila like '%{$model}%'
-			and Gorivo like '%{$model}%'
-			and Mjenjac like '%{$model}%'
-			and Pogon like '%{$model}%'
-			and Boja like '%{$model}%'
+			and Gorivo like '%{$gorivo}%'
+			and Mjenjac like '%{$mjenjac}%'
+			and Pogon like '%{$pogon}%'
+			and Boja like '%{$boja}%'
 			and Cijena between ({$cijenaOd}) and ({$cijenaDo})
 			ORDER BY a.id DESC";
 			

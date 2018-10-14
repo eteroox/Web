@@ -36,9 +36,13 @@ CREATE TABLE `auti` (
   PRIMARY KEY (`Id`),
   KEY `users_id` (`users_id`),
   CONSTRAINT `auti_ibfk_1` FOREIGN KEY (`users_id`) REFERENCES `users` (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 
 /*Data for the table `auti` */
+
+insert  into `auti`(`Id`,`MarkaAutomobila`,`ModelAutomobila`,`Gorivo`,`Mjenjac`,`Pogon`,`Boja`,`Cijena`,`Opis`,`users_id`,`DatumKreiranja`,`DatumUpdejta`) values 
+(1,'Suzuki','Vitara','Benzin','Ručni','2wd','Bijela','140000','Lorem ipsum dolor sit amet, co',1,'2018-10-14 19:43:40','2018-10-14 19:43:40'),
+(2,'WW','Golf','Benzin','Ručni','4wd','Smeđa','160000','Test updejt',1,'2018-10-14 19:45:37','2018-10-14 19:46:19');
 
 /*Table structure for table `kontakti` */
 
@@ -51,13 +55,37 @@ CREATE TABLE `kontakti` (
   `Objasnjenje` varchar(8000) COLLATE cp1250_croatian_ci DEFAULT NULL,
   `Datum` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 
 /*Data for the table `kontakti` */
 
 insert  into `kontakti`(`Id`,`Naslov`,`EmailKorisnika`,`Objasnjenje`,`Datum`) values 
-(1,'test','test','test','2018-10-10 19:54:59'),
-(2,'test','test','test','2018-10-10 19:55:44');
+(1,'Test naslov','dalibasic@tvz.hr','test opis','2018-10-14 19:49:08');
+
+/*Table structure for table `slike` */
+
+DROP TABLE IF EXISTS `slike`;
+
+CREATE TABLE `slike` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `NazivSlike` varchar(50) COLLATE cp1250_croatian_ci DEFAULT NULL,
+  `TipSlike` varchar(10) COLLATE cp1250_croatian_ci DEFAULT NULL,
+  `VelicinaSlike` double DEFAULT NULL,
+  `LokacijaSlike` varchar(100) COLLATE cp1250_croatian_ci DEFAULT NULL,
+  `auti_id` int(11) DEFAULT NULL,
+  `users_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `auti_id` (`auti_id`),
+  KEY `users_id` (`users_id`),
+  CONSTRAINT `slike_ibfk_1` FOREIGN KEY (`auti_id`) REFERENCES `auti` (`Id`),
+  CONSTRAINT `slike_ibfk_2` FOREIGN KEY (`users_id`) REFERENCES `users` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+
+/*Data for the table `slike` */
+
+insert  into `slike`(`Id`,`NazivSlike`,`TipSlike`,`VelicinaSlike`,`LokacijaSlike`,`auti_id`,`users_id`) values 
+(1,'vitara2018.JPG','JPG',52223,'uploads/vitara2018.JPG',1,1),
+(2,'golf7.jpg','jpg',46127,'uploads/golf7.jpg',2,1);
 
 /*Table structure for table `users` */
 
@@ -75,40 +103,12 @@ CREATE TABLE `users` (
   `Datum` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `Email` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`Id`,`Ime`,`Prezime`,`Dob`,`MjestoStanovanja`,`PostanskiBroj`,`Email`,`Password_user`,`Datum`) values 
-(1,'Denis','Alibašić',27,'Sveti Ivan Zelina',10382,'dalibasic@tvz.hr','test','2018-10-10 19:33:23'),
-(2,'denis','aliba??iÄ‡',0,'27',0,'10382','test','2018-10-10 19:33:23'),
-(4,'denis','aliba??iÄ‡',27,'Sv. Ivan Zelina',10382,'eteroox@hotmail.com','test','2018-10-10 19:33:23'),
-(5,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'email@email.com','test','2018-10-10 19:33:23'),
-(6,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'mi-ma5@hotmail.com','test','2018-10-10 19:33:23'),
-(7,'','',0,'',0,'eteroox@hotmail.comad','','2018-10-10 19:33:23'),
-(8,'','',0,'',0,'denis.alibasic22@gmail.comsfs','','2018-10-10 19:33:23'),
-(9,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'mi-ma556@hotmail.com','test','2018-10-10 19:33:23'),
-(11,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'eterooxxx@hotmail.comx','test','2018-10-10 19:33:23'),
-(12,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'dalibasic@tvz.hrasdafd','test','2018-10-10 19:33:23'),
-(13,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'dalibasic@tvz.hr344','test','2018-10-10 19:33:23'),
-(14,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'eteroox@hotmail.comcxvxcdas','test','2018-10-10 19:33:23'),
-(16,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'eteroox@hotmail.comvcbvbcvb','test','2018-10-10 19:33:23'),
-(17,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'dalibasic@tvz.hr3453454','test','2018-10-10 19:33:23'),
-(19,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'eteroox@hotmail.comxxcvbcvbbnvn','test','2018-10-10 19:33:23'),
-(20,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'dalibasic@tvz.hrxasdwegerg','test','2018-10-10 19:33:23'),
-(21,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'dalibasic@tvz.hrdfgdfg','testsetset','2018-10-10 19:33:23'),
-(22,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'eteroox@hotmail.comfdhfgjgjkk','asdasda','2018-10-10 19:33:23'),
-(23,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'denis.alibasic22@gmail.comcxvxcbcvnbffssdf','retzrtzrt','2018-10-10 19:33:23'),
-(24,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'eteroox@hotmail.comxcvxbnn','dsfbghtgmugjuk','2018-10-10 19:33:23'),
-(25,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'denis.alibasic@tvz.hrcvbcvbcvnbvmbnmbnmgfhdf','sdbcvbcvnhmrzzhd','2018-10-10 19:33:23'),
-(26,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'eteroox@hotmail.comdsfsdf','asdascyxc','2018-10-10 19:33:23'),
-(27,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'dalibasic@tvz.hrsdfsdf','dffdgdb','2018-10-10 19:33:23'),
-(28,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'email@email.comcvxcvxcvxcv','zuizhjkjkzu','2018-10-10 19:33:23'),
-(29,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'denis.alibasic@tvz.hryxyxyxyycyxcsdasv','fsdfggsdg','2018-10-10 19:33:23'),
-(30,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'email@email.comfgdfdfhdhfg','234235435','2018-10-10 19:33:23'),
-(31,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'eteroox@hotmail.comyxcyxccvfsgsfsfwbasdd','testsets','2018-10-10 19:33:23'),
-(33,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'dalibasic@tvz.hrxcvxcvcxv','fdggfnbvn','2018-10-10 19:33:23'),
-(34,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'123435dalibasic@tvz.hr','test','2018-10-10 19:53:05');
+(1,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'dalibasic@tvz.hr','$2y$12$ITI3xKRa6qNOghU/EXcIv.DmmN32HaoTLW55vgVL7yebn40IjNQYq','2018-10-14 19:40:50');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
