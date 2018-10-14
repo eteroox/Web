@@ -91,7 +91,10 @@ HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
 					document.getElementById("passwordLogin").innerHTML  = "Password je obavezan";
 				}
 				else if(response === "kriviEmail"){
-					document.getElementById("emailLogin").innerHTML  = "Email se već koristi";
+					document.getElementById("emailLogin").innerHTML  = "Krivi email";
+				}
+				else if(response === "lospas"){
+					document.getElementById("passwordLogin").innerHTML  = "Krivi password!";
 				}
 				else{
 					window.location.replace("/oglasnik/Web/oglasnik/index.php");

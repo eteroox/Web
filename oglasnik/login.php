@@ -12,12 +12,12 @@
 	$email = mysqli_real_escape_string($db,$_POST['email']);
 	$mypassword = mysqli_real_escape_string($db,$_POST['password']); 
       
-	$emailsql = "SELECT email FROM users WHERE Email = '".$email."' AND Password_user = '".$mypassword."'";
+	$emailsql = "SELECT email, Password_user as pass FROM users WHERE Email = '".$email."'";
 	$emailresult = mysqli_query($db, $emailsql);
 	$row=mysqli_fetch_array($emailresult);
 	$foundEmail = $row["email"];
 	
-	if($email == "" || $mypassword = ""){
+	if($email == "" || $mypassword == ""){
 		echo "error";
 		exit();
 	}
@@ -26,9 +26,14 @@
 		exit();
 	}
 	else{
-		$_SESSION['login_email'] = $foundEmail;
-		echo "logiran";
-		exit();
+		if(password_verify($mypassword, $row["pass"])){
+			$_SESSION['login_email'] = $foundEmail;
+			echo "logiran";
+			exit();
+		}else{
+			echo "lospas";
+			exit();
+		}
 	}
 }
 ?>

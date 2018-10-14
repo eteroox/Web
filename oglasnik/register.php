@@ -24,6 +24,9 @@
 	$mjestostanovanja = $_POST['mjestostanovanja'];
 	$postbr = $_POST['postbr'];
 	$password = $_POST['password'];
+	
+	
+	$password = password_hash($_POST['password'], PASSWORD_DEFAULT, ['cost' => 12]);
 
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
 		if($foundEmail != ""){
