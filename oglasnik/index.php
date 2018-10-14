@@ -185,6 +185,34 @@
 			}
 		});
 		}
+		
+		function funUpd(){
+		var form_data = new FormData();
+		idS = document.getElementById('idS').innerHTML;
+		idA = document.getElementById('idA').innerHTML;
+        form_data.append('marka', $('#marka').val());
+		form_data.append('model', $('#model').val());
+		form_data.append('gorivo', $('#gorivo').val());
+		form_data.append('mjenjac', $('#mjenjac').val());
+		form_data.append('pogon', $('#pogon').val());
+		form_data.append('boja', $('#boja').val());
+		form_data.append('cijena', $('#cijena').val());
+		form_data.append('opis', $('#opis').val());
+		form_data.append('idS', idS);
+		form_data.append('idA', idA);
+		
+		$.ajax({
+			type: 'post',  
+			url: 'promjeniOglas.php',
+			processData: false,
+			contentType: false,
+			cache: false,
+			data: form_data,
+			success: function(response) {
+				alert("Oglas uspješno promjenjen!");
+			}
+		});
+		}
 </script>
 
 <style>
@@ -195,7 +223,7 @@ span.carMojiSpan{
 	color:red;
 }
 img.imageMojiOglasi{
-	width:60%; 
+	width:75%; 
 	float:left;
 }
 
