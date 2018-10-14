@@ -236,11 +236,187 @@
 			data: {marka: marka, model: model, gorivo: gorivo, mjenjac: mjenjac, pogon: pogon, boja: boja, cijenaOd: cijenaOd,
 				cijenaDo: cijenaDo},
 			success: function(response) {
+				var i = 1;
+				document.getElementById("searchOutside").innerHTML = "";
 				$.each(JSON.parse(response), function (index, value) {
 					console.log(value);
 					console.log(value.Gorivo);
-					document.getElementById('slikaOglasi').src = value.LokacijaSlike;
-					document.getElementById("searchResultId").style.display = "block";
+					/*document.getElementById('slikaOglasi').src = value.LokacijaSlike;
+					document.getElementById("searchResultId").style.display = "block";*/
+					
+					var iDiv = document.createElement('div');
+					iDiv.id = 'block'+i;
+					iDiv.className = 'searchResult';
+					iDiv.style.padding = '5px';
+					document.getElementById("searchOutside").appendChild(iDiv);
+					
+					var elem = document.createElement("img");
+					elem.setAttribute("src", value.LokacijaSlike);
+					elem.setAttribute("height", "600px");
+					elem.setAttribute("width", "60%");
+					elem.setAttribute("alt", value.MarkaAutomobila);
+					elem.style.border = '2px solid black';
+					elem.style.margin = '5px';
+					if(i % 2 === 1){
+						elem.style.float = 'right';
+					}else{
+						elem.style.float = 'left';
+					}
+					document.getElementById(iDiv.id).appendChild(elem);
+					
+					var markaCrveno = document.createElement("span");
+					markaCrveno.style.color = "red";
+					markaCrveno.innerHTML = 'Marka automobila: ';
+					markaCrveno.style.fontSize  = "30px";
+					document.getElementById(iDiv.id).appendChild(markaCrveno);
+					
+					var markaAutomobila = document.createElement("p");
+					markaAutomobila.innerHTML = value.MarkaAutomobila;
+					markaAutomobila.style.textTransform = "uppercase";
+					markaAutomobila.style.fontFamily = "Lucida Console";
+					markaAutomobila.style.fontsize = "25px";
+					document.getElementById(iDiv.id).appendChild(markaAutomobila);
+					
+					var modelCrveno = document.createElement("span");
+					modelCrveno.style.color = "red";
+					modelCrveno.innerHTML = 'Model automobila: ';
+					modelCrveno.style.fontSize  = "30px";
+					document.getElementById(iDiv.id).appendChild(modelCrveno);
+					
+					var modelAutomobila = document.createElement("p");
+					modelAutomobila.innerHTML = value.ModelAutomobila;
+					modelAutomobila.style.textTransform = "uppercase";
+					modelAutomobila.style.fontFamily = "Lucida Console";
+					modelAutomobila.style.fontsize = "25px";
+					document.getElementById(iDiv.id).appendChild(modelAutomobila);
+					
+					var gorivoCrveno = document.createElement("span");
+					gorivoCrveno.style.color = "red";
+					gorivoCrveno.innerHTML = 'Gorivo: ';
+					gorivoCrveno.style.fontSize  = "30px";
+					document.getElementById(iDiv.id).appendChild(gorivoCrveno);
+					
+					var gorivo = document.createElement("p");
+					gorivo.innerHTML = value.Gorivo;
+					gorivo.style.textTransform = "uppercase";
+					gorivo.style.fontFamily = "Lucida Console";
+					gorivo.style.fontsize = "25px";
+					document.getElementById(iDiv.id).appendChild(gorivo);
+					
+					var mjenjacCrveno = document.createElement("span");
+					mjenjacCrveno.style.color = "red";
+					mjenjacCrveno.innerHTML = 'Mjenjac: ';
+					mjenjacCrveno.style.fontSize  = "30px";
+					document.getElementById(iDiv.id).appendChild(mjenjacCrveno);
+					
+					var mjenjac = document.createElement("p");
+					mjenjac.innerHTML = value.Mjenjac;
+					mjenjac.style.textTransform = "uppercase";
+					mjenjac.style.fontFamily = "Lucida Console";
+					mjenjac.style.fontsize = "25px";
+					document.getElementById(iDiv.id).appendChild(mjenjac);
+					
+					var pogonCrveno = document.createElement("span");
+					pogonCrveno.style.color = "red";
+					pogonCrveno.innerHTML = 'Pogon: ';
+					pogonCrveno.style.fontSize  = "30px";
+					document.getElementById(iDiv.id).appendChild(pogonCrveno);
+					
+					var pogon = document.createElement("p");
+					pogon.innerHTML = value.Pogon;
+					pogon.style.textTransform = "uppercase";
+					pogon.style.fontFamily = "Lucida Console";
+					pogon.style.fontsize = "25px";
+					document.getElementById(iDiv.id).appendChild(pogon);
+					
+					var bojaCrveno = document.createElement("span");
+					bojaCrveno.style.color = "red";
+					bojaCrveno.innerHTML = 'Boja: ';
+					bojaCrveno.style.fontSize  = "30px";
+					document.getElementById(iDiv.id).appendChild(bojaCrveno);
+					
+					var boja = document.createElement("p");
+					boja.innerHTML = value.Boja;
+					boja.style.textTransform = "uppercase";
+					boja.style.fontFamily = "Lucida Console";
+					boja.style.fontsize = "25px";
+					document.getElementById(iDiv.id).appendChild(boja);
+					
+					var cijenaCrveno = document.createElement("span");
+					cijenaCrveno.style.color = "red";
+					cijenaCrveno.innerHTML = 'Cijena: ';
+					cijenaCrveno.style.fontSize  = "30px";
+					document.getElementById(iDiv.id).appendChild(cijenaCrveno);
+					
+					var cijena = document.createElement("p");
+					cijena.innerHTML = value.Cijena;
+					cijena.style.textTransform = "uppercase";
+					cijena.style.fontFamily = "Lucida Console";
+					cijena.style.fontsize = "25px";
+					document.getElementById(iDiv.id).appendChild(cijena);
+					
+					var korisnikCrveno = document.createElement("span");
+					korisnikCrveno.style.color = "red";
+					korisnikCrveno.innerHTML = 'Kontakt ime: ';
+					korisnikCrveno.style.fontSize  = "30px";
+					document.getElementById(iDiv.id).appendChild(korisnikCrveno);
+					
+					var korisnik = document.createElement("p");
+					korisnik.innerHTML = value.Korisnik;
+					korisnik.style.textTransform = "uppercase";
+					korisnik.style.fontFamily = "Lucida Console";
+					korisnik.style.fontsize = "25px";
+					document.getElementById(iDiv.id).appendChild(korisnik);
+					
+					var mjestoCrveno = document.createElement("span");
+					mjestoCrveno.style.color = "red";
+					mjestoCrveno.innerHTML = 'Lokacija vozila: ';
+					mjestoCrveno.style.fontSize  = "30px";
+					document.getElementById(iDiv.id).appendChild(mjestoCrveno);
+					
+					var mjesto = document.createElement("p");
+					mjesto.innerHTML = value.Mjesto;
+					mjesto.style.textTransform = "uppercase";
+					mjesto.style.fontFamily = "Lucida Console";
+					mjesto.style.fontsize = "25px";
+					document.getElementById(iDiv.id).appendChild(mjesto);
+					
+					var postbrCrveno = document.createElement("span");
+					postbrCrveno.style.color = "red";
+					postbrCrveno.innerHTML = 'Poštanski broj: ';
+					postbrCrveno.style.fontSize  = "30px";
+					document.getElementById(iDiv.id).appendChild(postbrCrveno);
+					
+					var postbr = document.createElement("p");
+					postbr.innerHTML = value.Postbr;
+					postbr.style.textTransform = "uppercase";
+					postbr.style.fontFamily = "Lucida Console";
+					postbr.style.fontsize = "25px";
+					document.getElementById(iDiv.id).appendChild(postbr);
+					
+					var opisCrveno = document.createElement("span");
+					opisCrveno.style.color = "red";
+					opisCrveno.innerHTML = 'Opis: ';
+					opisCrveno.style.fontSize  = "30px";
+					document.getElementById(iDiv.id).appendChild(opisCrveno);
+					
+					var opis = document.createElement("p");
+					opis.innerHTML = value.Opis;
+					opis.style.textTransform = "uppercase";
+					opis.style.fontFamily = "Lucida Console";
+					opis.style.fontsize = "25px";
+					document.getElementById(iDiv.id).appendChild(opis);
+					
+					var divNONE = document.createElement("div");
+					divNONE.style.clear = 'both';
+					
+					document.getElementById("searchOutside").appendChild(divNONE);
+					
+					var hr = document.createElement("hr");
+					hr.style.border = "2px solid black";
+					document.getElementById("searchOutside").appendChild(hr);
+					
+					i = i+1;
 				});
 			}
 		});
@@ -266,8 +442,12 @@ img.imageMojiOglasi{
 	width:50%; 
 	float:left;
 }
+#searchOutside{
+	background: rgb(255, 255, 255, .9);
+}
 .searchResult{
-	display: none;
+	width: 100%;
+	margin: 0 auto;
 }
 
 @media screen and (max-width: 1000px) {
@@ -315,8 +495,8 @@ img.imageMojiOglasi{
 		<div class="contentWrapper" id="contents">
 			<div style="width:50%; margin:0 auto"><p style="font-size: 50px;">OGLASNIK</p></div>
 		</div>
-		<div class="searchResult" id="searchResultId">
-			<img id="slikaOglasi" src="//:0"/>
+		<div id="searchOutside">
+		
 		</div>
 	</section>
 </main>
