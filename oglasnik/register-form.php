@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="example-number-input" class="col-2 col-form-label">Poötanski broj</label>
+			<label for="example-number-input" class="col-2 col-form-label">Po≈°tanski broj</label>
 			<div class="col-10">
 				<input class="form-control" type="text" id="postbr" name="postbr">
 				<span id="postbrRegister" class="errorRegister"></span>

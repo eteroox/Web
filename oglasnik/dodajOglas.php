@@ -12,6 +12,19 @@
 	}
 	
 	mysqli_set_charset($db,"utf8");
+	
+	$sql = "SELECT id FROM users WHERE Email = '".$email."'";
+	$result = mysqli_query($db, $sql);
+	
+	if ( /*mysql_num_rows($result)==0 &&*/ $_SESSION['login_type'] == "face" ) {
+		$name = $_SESSION['login_name'];
+		$email = $_SESSION['login_email'];
+		$password = password_hash('someRandomPasswordTest1234567657123', PASSWORD_DEFAULT, ['cost' => 12]);
+		
+		$insertsql = "INSERT INTO users (Ime, Password_user, Email) 
+				VALUES ('$name', '$password', '$email')";
+		$db->query($insertsql);
+	}
 
 	//allowed file types
 	$arr_file_types = ['image/png', 'image/gif', 'image/jpg', 'image/jpeg'];
@@ -46,9 +59,20 @@
 	$cijena = $_POST['cijena'];
 	$opis = $_POST['opis'];
 	
-	if ( $result === false ) {
-	  echo "error";
-	  exit();
+	if ( $result === false && $_SESSION['login_type'] ===  "face" ) {
+	  $randomFBPass = generateRandomString();
+	  $name = $_SESSION['login_name'];
+	  
+		$insertsql = "INSERT INTO users (Ime, Password_user, Email) 
+				VALUES ('$name', '$randomFBPass', '$email')";
+		
+		$db->query($insertsql);
+		
+		$result = mysqli_query($db, $sql);
+	}
+	if($result === false){
+		echo "error";
+		exit();
 	}
 	else {
 		if($_SERVER["REQUEST_METHOD"] == "POST") {
