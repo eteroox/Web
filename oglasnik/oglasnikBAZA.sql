@@ -36,13 +36,14 @@ CREATE TABLE `auti` (
   PRIMARY KEY (`Id`),
   KEY `users_id` (`users_id`),
   CONSTRAINT `auti_ibfk_1` FOREIGN KEY (`users_id`) REFERENCES `users` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 
 /*Data for the table `auti` */
 
 insert  into `auti`(`Id`,`MarkaAutomobila`,`ModelAutomobila`,`Gorivo`,`Mjenjac`,`Pogon`,`Boja`,`Cijena`,`Opis`,`users_id`,`DatumKreiranja`,`DatumUpdejta`) values 
 (1,'Suzuki','Vitara','Benzin','Ručni','2wd','Bijela','140000','Lorem ipsum dolor sit amet, co',1,'2018-10-14 19:43:40','2018-10-14 19:43:40'),
-(2,'WW','Golf','Benzin','Ručni','4wd','Smeđa','160000','Test updejt',1,'2018-10-14 19:45:37','2018-10-14 19:46:19');
+(6,'Bmw','1','Benzin','Automatik','2wd','Crna','200000','Opis auta',2,'2018-10-20 21:46:16','2018-10-20 21:47:09'),
+(7,'Audi','a4','Benzin','Ručni','4wd','Crvena','250000','Opis audi bla bla',2,'2018-10-20 21:50:11','2018-10-20 21:50:11');
 
 /*Table structure for table `kontakti` */
 
@@ -79,13 +80,14 @@ CREATE TABLE `slike` (
   KEY `users_id` (`users_id`),
   CONSTRAINT `slike_ibfk_1` FOREIGN KEY (`auti_id`) REFERENCES `auti` (`Id`),
   CONSTRAINT `slike_ibfk_2` FOREIGN KEY (`users_id`) REFERENCES `users` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 
 /*Data for the table `slike` */
 
 insert  into `slike`(`Id`,`NazivSlike`,`TipSlike`,`VelicinaSlike`,`LokacijaSlike`,`auti_id`,`users_id`) values 
 (1,'vitara2018.JPG','JPG',52223,'uploads/vitara2018.JPG',1,1),
-(2,'golf7.jpg','jpg',46127,'uploads/golf7.jpg',2,1);
+(6,'BMW-1.png','png',205184,'uploads/BMW-1.png',6,2),
+(7,'audi-a4.png','png',31644,'uploads/audi-a4.png',7,2);
 
 /*Table structure for table `users` */
 
@@ -103,12 +105,13 @@ CREATE TABLE `users` (
   `Datum` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `Email` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=cp1250 COLLATE=cp1250_croatian_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`Id`,`Ime`,`Prezime`,`Dob`,`MjestoStanovanja`,`PostanskiBroj`,`Email`,`Password_user`,`Datum`) values 
-(1,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'dalibasic@tvz.hr','$2y$12$ITI3xKRa6qNOghU/EXcIv.DmmN32HaoTLW55vgVL7yebn40IjNQYq','2018-10-14 19:40:50');
+(1,'denis','alibašić',27,'Sv. Ivan Zelina',10382,'dalibasic@tvz.hr','$2y$12$ITI3xKRa6qNOghU/EXcIv.DmmN32HaoTLW55vgVL7yebn40IjNQYq','2018-10-14 19:40:50'),
+(2,'Denis Alibašić',NULL,NULL,NULL,NULL,'eteroox@hotmail.com','$2y$12$4ODYRpgHVx0fBQVdygeve.nBKAmKjnjOTOh8dPf06mcoLbVYF9g9a','2018-10-20 21:46:16');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -38,6 +38,7 @@ HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
 		$("#login").click(function(){
 			$("#contents").load('login.php');
 			$('#spanLogin').text(' Login');
+			$('#spanFBLogin').text(' Facebook Login');
 			$('#dodajOglas').hide();
 			$('#mojiOglasi').hide();
 			$('#signupNav').show();
@@ -45,6 +46,7 @@ HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
 	});
 	
 	function validateRegister(){
+		document.getElementById("searchOutside").innerHTML = "";
 		ime = document.getElementById('ime').value;
 		prezime = document.getElementById('prezime').value;
 		email = document.getElementById('email').value;
@@ -113,6 +115,7 @@ HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
 	});
 	
 	function validateKontakti(){
+		document.getElementById("searchOutside").innerHTML = "";
 		naslov = document.getElementById('naslov').value;
 		email = document.getElementById('email').value;
 		objasnjenje = document.getElementById('objasnjenje').value;
@@ -141,6 +144,7 @@ HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
 	});
 	
 	function validateDodajOglas(event){	
+		document.getElementById("searchOutside").innerHTML = "";
 		var file_data = $('.image').prop('files')[0];
 		var form_data = new FormData();                  
         form_data.append('marka', $('#marka').val());
@@ -476,6 +480,44 @@ HomePage: https://lokeshdhakar.com/projects/lightbox2/#license
 			}
 		});
 		}
+		
+		logInWithFacebook = function() {
+			FB.login(function(response) {
+			  if (response.authResponse) {
+				  FB.api('/me', {fields: 'name,email'}, function(response) {
+					console.log('Good to see you, ' + response.name + '.' + response.email);
+					$.ajax({
+						 type: 'POST',
+						 url: "set_fb_session.php",
+						 data: { email: response.email, name: response.name },
+						 success: function(response) {
+							window.location.replace("/oglasnik/Web/oglasnik/index.php");
+						}
+					}); 
+				  });
+				// Now you can redirect the user or do an AJAX request to
+				// a PHP script that grabs the signed request from the cookie.
+			  } else {
+				alert('User cancelled login or did not fully authorize.');
+			  }
+			});
+			return false;
+		  };
+		  window.fbAsyncInit = function() {
+			FB.init({
+			  appId: '1852311214865102',
+			  cookie: true, // This is important, it's not enabled by default
+			  version: 'v2.2'
+			});
+		  };
+
+		  (function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "https://connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		  }(document, 'script', 'facebook-jssdk'));
 </script>
 
 <style>
@@ -545,6 +587,10 @@ img.imageMojiOglasi{
 				}
 			?>
 			</span></a></li>
+		<li><a href="#" onClick="logInWithFacebook()">
+			<span id="spanFBLogin">
+				<?php if(isset($_SESSION['login_email'])){ }else{echo "Facebook Login";}?>
+				</span></a></li>
 		</ul>
 	  </div>
 	</nav>
